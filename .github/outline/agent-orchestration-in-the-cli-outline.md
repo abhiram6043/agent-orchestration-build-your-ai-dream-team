@@ -54,10 +54,10 @@ Repository agent definitions:
 
 Learner artifacts:
 
-- `agent-roles.md`: the agent role and model map.
-- `planner-handoff.md`: a Planner request and planning response structure.
-- `execution-plan.md`: an Orchestrator execution plan with phase sequencing and agent assignments.
-- `final-report.md`: an Orchestrator report that summarizes coordination, validation, and handoff.
+- `agent-roles.md`: the agent role and model map, created by `postCreate.sh` as the first learner artifact.
+- `planner-handoff.md`: a Planner request and planning response structure, created by the learner in Step 2.
+- `execution-plan.md`: an Orchestrator execution plan with phase sequencing and agent assignments, created by the learner in Step 3.
+- `final-report.md`: an Orchestrator report that summarizes coordination, validation, and handoff, created by the learner in Step 4.
 
 ## Codespaces and dev container setup
 
@@ -132,7 +132,7 @@ An Orchestrator should not jump directly into implementation. It first asks a Pl
 
 1. Use Copilot CLI to read the sample request in `orchestration/sample-request.md`.
 1. Ask Copilot CLI to draft a Planner handoff for the sample request.
-1. Update `orchestration/planner-handoff.md` with:
+1. Create `orchestration/planner-handoff.md` with:
    - The original user request.
    - Context the Planner should inspect.
    - Expected output format.
@@ -171,7 +171,7 @@ Delegation prompts should describe the outcome and file scope, not the exact imp
 
 1. Use Copilot CLI to review `orchestration/planner-handoff.md`.
 1. Ask Copilot CLI to create an Orchestrator execution plan.
-1. Update `orchestration/execution-plan.md` with:
+1. Create `orchestration/execution-plan.md` with:
    - At least two phases.
    - Agent assignments for Coder and Designer.
    - File scope for each task.
@@ -207,7 +207,7 @@ The Orchestrator is responsible for more than dispatching tasks. It tracks phase
 
 1. Use Copilot CLI to review the previous artifacts.
 1. Ask Copilot CLI to draft the final Orchestrator handoff.
-1. Update `orchestration/final-report.md` with:
+1. Create `orchestration/final-report.md` with:
    - A summary of the request.
    - The agents involved.
    - The phase order.
@@ -267,7 +267,8 @@ Suggested next steps:
 ## Bootstrap notes
 
 - Use push-based triggers for every learner step to keep the flow simple in Codespaces.
-- Starter files should contain clear TODO markers so learners know what to replace.
+- The template should not commit learner answer files that match Step 1-4 path filters, because copied repositories treat the template contents as an initial push.
+- `postCreate.sh` should create only the Step 1 starter file so committing all new local files in Step 1 cannot trigger later step workflows early.
 - The dev container scripts should be idempotent and should not overwrite learner work.
 - Keep step theory sections short and focused. Put longer references in "Read more" links.
 - Confirm all step instructions tell learners to work through GitHub Copilot CLI in the integrated terminal.

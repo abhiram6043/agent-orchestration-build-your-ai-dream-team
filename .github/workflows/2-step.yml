@@ -18,6 +18,7 @@ env:
 
 jobs:
   find_exercise:
+    if: github.event_name != 'push' || (github.event.created == false && github.event.head_commit.message != 'Initial commit')
     name: Find Exercise Issue
     uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.9.3
 

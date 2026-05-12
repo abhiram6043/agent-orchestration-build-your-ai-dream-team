@@ -30,7 +30,7 @@ Delegation prompts should describe **what** outcome is needed and **which files*
    Review orchestration/planner-handoff.md and help me create an Orchestrator execution plan with phases, specialist agent assignments, file scopes, and parallel or sequential labels.
    ```
 
-1. Update `orchestration/execution-plan.md`.
+1. Create `orchestration/execution-plan.md`.
 
 1. Your execution plan should include:
 

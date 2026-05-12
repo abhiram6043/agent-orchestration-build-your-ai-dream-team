@@ -33,7 +33,7 @@ A useful Planner handoff includes:
    Read orchestration/sample-request.md and help me draft a Planner handoff for this orchestration exercise.
    ```
 
-1. Update `orchestration/planner-handoff.md`.
+1. Create `orchestration/planner-handoff.md`.
 
 1. Your handoff should include:
 

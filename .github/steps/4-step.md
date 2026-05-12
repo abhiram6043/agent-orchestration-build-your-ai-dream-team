@@ -30,7 +30,7 @@ A strong final report explains what ran, why it ran in that order, what was vali
    Review orchestration/agent-roles.md, orchestration/planner-handoff.md, and orchestration/execution-plan.md. Help me draft the final Orchestrator report with phase order, parallel and sequential decisions, validation notes, and a final result.
    ```
 
-1. Update `orchestration/final-report.md`.
+1. Create `orchestration/final-report.md`.
 
 1. Your final report should include:
 
