@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - orchestration/execution-plan.md
+      - app/**
 
 permissions:
   contents: write
@@ -59,24 +59,37 @@ jobs:
           file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
           edit-mode: replace
 
-      - name: Check execution plan exists
-        id: check-execution-file
+      - name: Check index exists
+        id: check-index-file
         continue-on-error: true
         uses: skills/exercise-toolkit/actions/file-exists@v0.9.3
         with:
-          file: orchestration/execution-plan.md
+          file: app/index.html
 
-      - name: Check execution plan content
-        id: check-execution-content
+      - name: Check stylesheet exists
+        id: check-styles-file
+        continue-on-error: true
+        uses: skills/exercise-toolkit/actions/file-exists@v0.9.3
+        with:
+          file: app/styles.css
+
+      - name: Check data file exists
+        id: check-data-file
+        continue-on-error: true
+        uses: skills/exercise-toolkit/actions/file-exists@v0.9.3
+        with:
+          file: app/project-data.json
+
+      - name: Check dashboard content
+        id: check-dashboard-content
         continue-on-error: true
         run: |
-          grep -q 'Phase 1' orchestration/execution-plan.md
-          grep -q 'Phase 2' orchestration/execution-plan.md
-          grep -q 'Coder' orchestration/execution-plan.md
-          grep -q 'Designer' orchestration/execution-plan.md
-          grep -q 'Files:' orchestration/execution-plan.md
-          grep -Eiq 'parallel' orchestration/execution-plan.md
-          grep -Eiq 'sequential' orchestration/execution-plan.md
+          grep -q 'Project Pulse' app/index.html
+          grep -q 'styles.css' app/index.html
+          grep -q 'project-data.json' app/index.html
+          grep -Eiq 'dashboard|card|project' app/styles.css
+          grep -q 'projects' app/project-data.json
+          python3 -m json.tool app/project-data.json >/dev/null
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -89,10 +102,14 @@ jobs:
           vars: |
             step_number: 3
             results_table:
-              - description: "Checked for orchestration/execution-plan.md"
-                passed: ${{ steps.check-execution-file.outcome == 'success' }}
-              - description: "Checked for phases, specialist assignments, file scopes, and ordering labels"
-                passed: ${{ steps.check-execution-content.outcome == 'success' }}
+              - description: "Checked for app/index.html"
+                passed: ${{ steps.check-index-file.outcome == 'success' }}
+              - description: "Checked for app/styles.css"
+                passed: ${{ steps.check-styles-file.outcome == 'success' }}
+              - description: "Checked for app/project-data.json"
+                passed: ${{ steps.check-data-file.outcome == 'success' }}
+              - description: "Checked Project Pulse dashboard content"
+                passed: ${{ steps.check-dashboard-content.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')

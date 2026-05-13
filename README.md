@@ -1,14 +1,14 @@
 # Agent Orchestration in the GitHub Copilot CLI
 
-_Practice coordinating specialist agents from the terminal with GitHub Copilot CLI._
+_Use custom agents in GitHub Copilot CLI to plan, design, build, and validate a small dashboard._
 
 ## Welcome
 
-GitHub Copilot CLI brings an agentic coding assistant directly into your terminal. In this exercise, you will use a Codespace and the integrated terminal to practice an orchestration pattern with an Orchestrator, Planner, Coder, and Designer.
+GitHub Copilot CLI brings an agentic coding assistant directly into your terminal. In this exercise, you will use prebuilt custom agents in a Codespace to orchestrate planning, design, coding, and validation for Mona's Project Pulse dashboard.
 
 - **Who is this for**: Developers who have basic GitHub and GitHub Copilot familiarity and want to learn how to coordinate specialist agents from the terminal.
-- **What you'll learn**: How to use GitHub Copilot CLI in Codespaces to define agent roles, create a Planner handoff, map work to specialist agents, and summarize an orchestrated result.
-- **What you'll build**: Repository agent definitions plus orchestration artifacts that document agent roles, planning handoffs, execution phases, file ownership, parallel work, sequential work, and final validation.
+- **What you'll learn**: How to use GitHub Copilot CLI in Codespaces to inspect custom agents, ask an Orchestrator to involve specialist agents, plan implementation phases, build a small dashboard, and validate the final result.
+- **What you'll build**: A Project Pulse dashboard with `app/index.html`, `app/styles.css`, and `app/project-data.json`, plus planning and handoff notes in `docs/`.
 - **Prerequisites**:
   - A GitHub account with access to GitHub Copilot.
   - Access to GitHub Codespaces.
@@ -21,9 +21,10 @@ In this exercise, you will:
 
 1. Start a Codespace that puts GitHub Copilot CLI front and center.
 1. Inspect the Orchestrator, Planner, Coder, and Designer files under `.github/agents/`.
-1. Create a Planner handoff for a sample request.
-1. Convert planned work into an Orchestrator execution plan.
-1. Summarize the final coordinated result with validation notes.
+1. Use the Orchestrator and Planner to create a Project Pulse implementation plan.
+1. Use the Orchestrator to delegate dashboard design and coding work.
+1. Build the dashboard files and validate the result.
+1. Summarize the final coordinated handoff.
 
 ### How to start this exercise
 

@@ -1,23 +1,20 @@
-## Step 2: Create the Planner handoff
+## Step 2: Plan Project Pulse with the Orchestrator and Planner
 
-Great work mapping the agents! :sparkles:
+Great work meeting the agent team! :sparkles:
 
-Now you will create the handoff an Orchestrator gives to a Planner before any implementation starts.
+Now you will ask the Orchestrator to involve the Planner and create an implementation plan for Mona's Project Pulse dashboard.
 
-### Why start with a Planner?
+### Why plan before building?
 
-An Orchestrator should not jump directly into implementation. The first delegation should usually go to a Planner so the team has a clear view of the request, context, file ownership, dependencies, edge cases, and validation expectations.
+Intermediate agent workflows work best when the Orchestrator asks for a plan before implementation. The Planner should identify the files to create, dependencies between tasks, which work can happen in parallel, and what validation should prove the dashboard is complete.
 
-A useful Planner handoff includes:
+For Project Pulse, the expected app files are:
 
-- The original user request.
-- The context the Planner should inspect.
-- The format the Planner should return.
-- Expected file assignments.
-- Dependencies and edge cases to consider.
-- Validation expectations.
+- `app/index.html`
+- `app/styles.css`
+- `app/project-data.json`
 
-### :keyboard: Activity: Draft the Planner handoff
+### :keyboard: Activity: Create the implementation plan
 
 1. Return to your Codespace terminal.
 
@@ -30,31 +27,29 @@ A useful Planner handoff includes:
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. Ask Copilot CLI to read the sample request:
+1. Ask the Orchestrator to create a plan for Project Pulse:
 
    ```prompt
-   Read orchestration/sample-request.md and help me draft a Planner handoff for this orchestration exercise.
+   Use the Orchestrator agent pattern. Read .github/project-pulse-brief.md and .github/agents/. Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.
    ```
 
-1. Create `orchestration/planner-handoff.md`.
+1. Review `docs/project-pulse-plan.md`.
 
-1. Your handoff should include:
+1. Make sure the plan includes:
 
-   - The original user request.
-   - The context the Planner should inspect.
-   - The expected Planner output format.
-   - A request for file assignments.
-   - A request to identify dependencies.
-   - A request to identify edge cases.
-   - A request for validation expectations.
-
-1. Save the file.
+   - The Project Pulse goal.
+   - Planner involvement.
+   - File assignments for `app/index.html`, `app/styles.css`, and `app/project-data.json`.
+   - Designer and Coder responsibilities.
+   - Dependencies between the files.
+   - Parallel or sequential work decisions.
+   - Validation expectations.
 
 1. Commit and push your work:
 
    ```bash
-   git add orchestration/planner-handoff.md
-   git commit -m "Create planner handoff"
+   git add docs/project-pulse-plan.md
+   git commit -m "Plan the Project Pulse dashboard"
    git push
    ```
 
@@ -63,8 +58,8 @@ A useful Planner handoff includes:
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- Make sure you updated `orchestration/planner-handoff.md`.
-- Include the exact ideas "file assignments", "dependencies", "edge cases", and "validation" in your handoff.
+- Make sure you created `docs/project-pulse-plan.md`.
+- Include `Project Pulse`, `Planner`, `Designer`, `Coder`, the three app files, and `validation`.
 - Make sure you pushed your commit.
 
 </details>

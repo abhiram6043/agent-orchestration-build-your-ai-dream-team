@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - orchestration/planner-handoff.md
+      - docs/project-pulse-plan.md
 
 permissions:
   contents: write
@@ -59,22 +59,27 @@ jobs:
           file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
           edit-mode: replace
 
-      - name: Check planner handoff exists
-        id: check-planner-file
+      - name: Check Project Pulse plan exists
+        id: check-plan-file
         continue-on-error: true
         uses: skills/exercise-toolkit/actions/file-exists@v0.9.3
         with:
-          file: orchestration/planner-handoff.md
+          file: docs/project-pulse-plan.md
 
-      - name: Check planner handoff content
-        id: check-planner-content
+      - name: Check Project Pulse plan content
+        id: check-plan-content
         continue-on-error: true
         run: |
-          grep -q 'Planner' orchestration/planner-handoff.md
-          grep -qi 'file assignments' orchestration/planner-handoff.md
-          grep -qi 'dependencies' orchestration/planner-handoff.md
-          grep -qi 'edge cases' orchestration/planner-handoff.md
-          grep -qi 'validation' orchestration/planner-handoff.md
+          grep -q 'Project Pulse' docs/project-pulse-plan.md
+          grep -q 'Planner' docs/project-pulse-plan.md
+          grep -q 'Designer' docs/project-pulse-plan.md
+          grep -q 'Coder' docs/project-pulse-plan.md
+          grep -q 'app/index.html' docs/project-pulse-plan.md
+          grep -q 'app/styles.css' docs/project-pulse-plan.md
+          grep -q 'app/project-data.json' docs/project-pulse-plan.md
+          grep -Eiq 'dependencies|depends on' docs/project-pulse-plan.md
+          grep -Eiq 'parallel|sequential' docs/project-pulse-plan.md
+          grep -Eiq 'validation|validate' docs/project-pulse-plan.md
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -87,10 +92,10 @@ jobs:
           vars: |
             step_number: 2
             results_table:
-              - description: "Checked for orchestration/planner-handoff.md"
-                passed: ${{ steps.check-planner-file.outcome == 'success' }}
-              - description: "Checked for Planner handoff details"
-                passed: ${{ steps.check-planner-content.outcome == 'success' }}
+              - description: "Checked for docs/project-pulse-plan.md"
+                passed: ${{ steps.check-plan-file.outcome == 'success' }}
+              - description: "Checked for Project Pulse planning details"
+                passed: ${{ steps.check-plan-content.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')

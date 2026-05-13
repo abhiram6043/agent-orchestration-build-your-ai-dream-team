@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - orchestration/final-report.md
+      - docs/final-handoff.md
 
 permissions:
   contents: write
@@ -59,25 +59,27 @@ jobs:
           file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
           edit-mode: replace
 
-      - name: Check final report exists
+      - name: Check final handoff exists
         id: check-final-file
         continue-on-error: true
         uses: skills/exercise-toolkit/actions/file-exists@v0.9.3
         with:
-          file: orchestration/final-report.md
+          file: docs/final-handoff.md
 
-      - name: Check final report content
+      - name: Check final handoff content
         id: check-final-content
         continue-on-error: true
         run: |
-          grep -q 'Orchestrator' orchestration/final-report.md
-          grep -q 'Planner' orchestration/final-report.md
-          grep -q 'Coder' orchestration/final-report.md
-          grep -q 'Designer' orchestration/final-report.md
-          grep -Eiq 'validation' orchestration/final-report.md
-          grep -Eiq 'parallel' orchestration/final-report.md
-          grep -Eiq 'sequential' orchestration/final-report.md
-          grep -Eiq 'final result|handoff' orchestration/final-report.md
+          grep -q 'Project Pulse' docs/final-handoff.md
+          grep -q 'Orchestrator' docs/final-handoff.md
+          grep -q 'Planner' docs/final-handoff.md
+          grep -q 'Coder' docs/final-handoff.md
+          grep -q 'Designer' docs/final-handoff.md
+          grep -q 'app/index.html' docs/final-handoff.md
+          grep -q 'app/styles.css' docs/final-handoff.md
+          grep -q 'app/project-data.json' docs/final-handoff.md
+          grep -Eiq 'validation|validated' docs/final-handoff.md
+          grep -Eiq 'final result|handoff' docs/final-handoff.md
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -90,9 +92,9 @@ jobs:
           vars: |
             step_number: 4
             results_table:
-              - description: "Checked for orchestration/final-report.md"
+              - description: "Checked for docs/final-handoff.md"
                 passed: ${{ steps.check-final-file.outcome == 'success' }}
-              - description: "Checked for agent names, validation, ordering decisions, and final handoff"
+              - description: "Checked for agent names, app files, validation, and final handoff"
                 passed: ${{ steps.check-final-content.outcome == 'success' }}
 
       - name: Fail job if not all checks passed

@@ -1,20 +1,20 @@
-## Step 3: Map work to specialist agents
+## Step 3: Build the Project Pulse dashboard
 
-Nice! Your Orchestrator now has a Planner handoff. :tada:
+Nice! You have a plan. :tada:
 
-Next, you will turn planning output into an execution plan that assigns work to specialist agents.
+Now you will use the Orchestrator to delegate design and coding work so Project Pulse becomes a real static dashboard.
 
-### How the Orchestrator creates phases
+### What should the dashboard include?
 
-The Orchestrator parses the Planner result into phases:
+The dashboard should help contributors quickly understand Mona's team projects. It should include:
 
-- Tasks with no overlapping files and no data dependency can run in **parallel**.
-- Tasks that modify the same file or need earlier output must run **sequentially**.
-- Each delegated task should have explicit file scope so agents do not conflict.
+- A clear Project Pulse title.
+- Cards or sections for multiple projects.
+- Status, recent activity, and priority or risk information.
+- Accessible markup and readable styling.
+- Data in `app/project-data.json`.
 
-Delegation prompts should describe **what** outcome is needed and **which files** are in scope. Avoid telling the specialist exactly how to solve the task.
-
-### :keyboard: Activity: Create the execution plan
+### :keyboard: Activity: Delegate design and coding work
 
 1. Return to your Codespace terminal.
 
@@ -27,29 +27,27 @@ Delegation prompts should describe **what** outcome is needed and **which files*
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. Ask Copilot CLI to review your Planner handoff:
+1. Ask the Orchestrator to delegate the build:
 
    ```prompt
-   Review orchestration/planner-handoff.md and help me create an Orchestrator execution plan with phases, specialist agent assignments, file scopes, and parallel or sequential labels.
+   Use the Orchestrator agent pattern and the plan in docs/project-pulse-plan.md. Delegate visual and accessibility decisions to Designer and implementation to Coder. Build the Project Pulse dashboard in app/index.html, app/styles.css, and app/project-data.json.
    ```
 
-1. Create `orchestration/execution-plan.md`.
+1. Review the generated files.
 
-1. Your execution plan should include:
+1. Make sure:
 
-   - At least `Phase 1` and `Phase 2`.
-   - Tasks assigned to Coder and Designer.
-   - `Files:` lines for delegated tasks.
-   - Clear `PARALLEL` or `SEQUENTIAL` labels.
-   - A short note explaining how file conflicts are avoided.
-
-1. Save the file.
+   - `app/index.html` includes `Project Pulse`.
+   - `app/index.html` links to `styles.css`.
+   - `app/index.html` loads or references `project-data.json`.
+   - `app/styles.css` styles the dashboard layout.
+   - `app/project-data.json` contains project data.
 
 1. Commit and push your work:
 
    ```bash
-   git add orchestration/execution-plan.md
-   git commit -m "Create orchestrator execution plan"
+   git add app/index.html app/styles.css app/project-data.json
+   git commit -m "Build the Project Pulse dashboard"
    git push
    ```
 
@@ -58,8 +56,9 @@ Delegation prompts should describe **what** outcome is needed and **which files*
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- Make sure you updated `orchestration/execution-plan.md`.
-- Include `Phase 1`, `Phase 2`, `Coder`, `Designer`, `Files:`, `parallel`, and `sequential`.
+- Make sure all three app files exist.
+- Make sure `app/index.html` references `styles.css` and `project-data.json`.
+- Make sure `app/project-data.json` includes project data.
 - Make sure you pushed your commit.
 
 </details>

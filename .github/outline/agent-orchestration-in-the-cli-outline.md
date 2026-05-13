@@ -12,26 +12,24 @@
 
 ## Summary
 
-Learners use GitHub Copilot CLI in a Codespace to practice an agent orchestration workflow. They define a four-agent model, create a Planner handoff, map the planned work to Coder and Designer tasks, and write a final Orchestrator report that explains phase ordering, parallel work, file ownership, and validation.
-
-The exercise uses a guided simulation with repository artifacts so learners can practice orchestration patterns even if every named model is not available in their account.
+Learners use prebuilt custom agents in GitHub Copilot CLI to plan, design, build, validate, and hand off Mona's Project Pulse dashboard. The exercise focuses on using an Orchestrator to coordinate Planner, Designer, and Coder agents instead of having learners fill out agent definitions manually.
 
 ## Learning objectives
 
 By the end of this exercise, learners will be able to:
 
 1. Explain the responsibility of an Orchestrator agent in a multi-agent workflow.
-1. Describe the Planner, Coder, and Designer specialist roles.
+1. Inspect prebuilt custom agent definitions in `.github/agents/`.
 1. Identify model assignments for the exercise agents:
    - Orchestrator: Opus 4.7
    - Planner: Opus 4.7
    - Coder: GPT-5.5
    - Designer: Gemini 3.1 Pro
-1. Use GitHub Copilot CLI in a Codespace terminal to inspect and update repository artifacts.
-1. Convert a request into planning phases with file assignments and dependencies.
-1. Decide which tasks can run in parallel and which must run sequentially.
-1. Write delegation prompts that describe desired outcomes, assigned files, and agent ownership without over-prescribing implementation details.
-1. Summarize an orchestrated result with validation notes and a final handoff.
+1. Use GitHub Copilot CLI in a Codespace terminal as the primary interface.
+1. Ask the Orchestrator to involve the Planner before implementation.
+1. Separate design work from coding work.
+1. Build a small static dashboard with HTML, CSS, and JSON.
+1. Validate the dashboard and write a final Orchestrator handoff.
 
 ## Prerequisites
 
@@ -43,221 +41,150 @@ By the end of this exercise, learners will be able to:
 
 ## What learners will build
 
-Learners will inspect repository agent definitions and complete an `orchestration/` workspace.
+Learners will use prebuilt agent definitions and create these outputs:
 
-Repository agent definitions:
-
-- `.github/agents/orchestrator.agent.md`
-- `.github/agents/planner.agent.md`
-- `.github/agents/coder.agent.md`
-- `.github/agents/designer.agent.md`
-
-Learner artifacts:
-
-- `agent-roles.md`: the agent role and model map, created by `postCreate.sh` as the first learner artifact.
-- `planner-handoff.md`: a Planner request and planning response structure, created by the learner in Step 2.
-- `execution-plan.md`: an Orchestrator execution plan with phase sequencing and agent assignments, created by the learner in Step 3.
-- `final-report.md`: an Orchestrator report that summarizes coordination, validation, and handoff, created by the learner in Step 4.
+- `docs/agent-team.md`: summary of the custom agent team and their model assignments.
+- `docs/project-pulse-plan.md`: Planner-informed implementation plan for Project Pulse.
+- `app/index.html`: Project Pulse dashboard page.
+- `app/styles.css`: dashboard styling.
+- `app/project-data.json`: dashboard data.
+- `docs/final-handoff.md`: final Orchestrator validation and handoff.
 
 ## Codespaces and dev container setup
 
-The bootstrapped repository should include:
+The repository includes:
 
 - `.devcontainer/devcontainer.json`
 - `.devcontainer/postCreate.sh`
 - `.devcontainer/postStart.sh`
+- `.vscode/tasks.json`
 
 The dev container should:
 
-- Use a standard development container image suitable for shell, Git, GitHub CLI, Markdown, and light scripting.
 - Install or verify GitHub Copilot CLI availability.
 - Verify GitHub CLI availability.
-- Keep the integrated terminal prominent for the exercise.
-- Configure the workspace so learners begin with `copilot --allow-all --enable-all-github-mcp-tools` from the terminal.
-- Print a short orientation message after create/start events.
+- Open the terminal in the editor area after setup.
+- Start GitHub Copilot CLI with `copilot --allow-all --enable-all-github-mcp-tools`.
+- Configure terminal copy/paste ergonomics.
 - Avoid requiring learners to install local desktop tools outside Codespaces.
 
 ## Story
 
-Mona is preparing a terminal-first development workflow for a team that wants to use multiple AI agents safely. The team needs an Orchestrator that can collect a plan, split work across specialist agents, prevent file conflicts, and validate the final result. The learner will help Mona design and document the workflow by using GitHub Copilot CLI inside a Codespace.
+Mona's team needs a lightweight **Project Pulse** dashboard that shows project status, recent activity, priorities, and contributor-friendly summaries. The learner will use GitHub Copilot CLI and custom agents to orchestrate the work: Planner creates the plan, Designer guides the experience, Coder builds the static files, and Orchestrator validates and reports the final result.
 
-## Step 1: Start in the Copilot CLI Codespace
+## Step 1: Meet the agent team
 
 ### Theory
 
-GitHub Copilot CLI brings Copilot into the terminal so developers can work with an agentic assistant without leaving the command line. In this exercise, Codespaces provides the consistent development environment and the integrated terminal is the main workspace.
-
-The four agents in this exercise are:
-
-| Agent | Model | Responsibility |
-| --- | --- | --- |
-| Orchestrator | Opus 4.7 | Coordinates the request, delegates to specialists, sequences phases, prevents file conflicts, integrates results, and validates the outcome. |
-| Planner | Opus 4.7 | Researches context and produces a practical implementation plan with steps, file assignments, dependencies, edge cases, and open questions. |
-| Coder | GPT-5.5 | Implements code-oriented tasks and fixes, following existing project patterns and quality expectations. |
-| Designer | Gemini 3.1 Pro | Handles UI/UX direction, usability, accessibility, and visual design choices. |
+GitHub Copilot CLI can use custom agents stored in `.github/agents/`. In this exercise, those agents are already defined so the learner can focus on orchestration and use rather than authoring agent files.
 
 ### Activity
 
 1. Open the exercise in Codespaces.
-1. Open the integrated terminal in the editor area.
-1. Start GitHub Copilot CLI with `copilot --allow-all --enable-all-github-mcp-tools`.
-1. Ask Copilot CLI to inspect `.github/agents/` and summarize the repository agent definitions.
-1. Update `orchestration/agent-roles.md` so it captures the four agents, requested models, responsibilities, and the CLI-first workflow.
+1. Use the terminal that opens in the editor area.
+1. Start GitHub Copilot CLI with `copilot --allow-all --enable-all-github-mcp-tools` if it is not already running.
+1. Ask Copilot CLI to inspect `.github/agents/`.
+1. Update `docs/agent-team.md` with each agent, model, responsibility, source file, and how the team will build Project Pulse.
 1. Commit and push the change.
 
 ### Action trigger
 
 - Event: `push`
-- Path filter: `orchestration/agent-roles.md`
+- Path filter: `docs/agent-team.md`
 
 ### Grading checks
 
-- `orchestration/agent-roles.md` exists.
-- `.github/agents/orchestrator.agent.md`, `.github/agents/planner.agent.md`, `.github/agents/coder.agent.md`, and `.github/agents/designer.agent.md` exist.
+- `docs/agent-team.md` exists.
 - The file includes `Orchestrator`, `Planner`, `Coder`, and `Designer`.
 - The file includes `Opus 4.7`, `GPT-5.5`, and `Gemini 3.1 Pro`.
-- The file references GitHub Copilot CLI and Codespaces.
+- The file references `.github/agents/`, GitHub Copilot CLI, Codespaces, and Project Pulse.
 
-### Transition
-
-After the learner maps the agents and models, the exercise introduces the Planner handoff the Orchestrator needs before delegation.
-
-## Step 2: Create the Planner handoff
+## Step 2: Plan Project Pulse
 
 ### Theory
 
-An Orchestrator should not jump directly into implementation. It first asks a Planner to research the request and return a plan that can be turned into execution phases. A useful Planner handoff includes the user request, relevant context, expected deliverables, file assignments, dependencies, edge cases, validation expectations, and open questions.
+The Orchestrator should ask the Planner for a practical plan before implementation. The plan should include file assignments, dependencies, design and coding ownership, and validation expectations.
 
 ### Activity
 
-1. Use Copilot CLI to read the sample request in `orchestration/sample-request.md`.
-1. Ask Copilot CLI to draft a Planner handoff for the sample request.
-1. Create `orchestration/planner-handoff.md` with:
-   - The original user request.
-   - Context the Planner should inspect.
-   - Expected output format.
-   - Required file assignments.
-   - Dependency and edge-case prompts.
-   - Validation expectations.
+1. Read `.github/project-pulse-brief.md`.
+1. Ask the Orchestrator to involve the Planner.
+1. Create `docs/project-pulse-plan.md`.
+1. Ensure the plan references `app/index.html`, `app/styles.css`, `app/project-data.json`, Designer responsibilities, Coder responsibilities, dependencies, ordering decisions, and validation.
 1. Commit and push the change.
 
 ### Action trigger
 
 - Event: `push`
-- Path filter: `orchestration/planner-handoff.md`
+- Path filter: `docs/project-pulse-plan.md`
 
 ### Grading checks
 
-- `orchestration/planner-handoff.md` exists.
-- The file includes `Planner`.
-- The file includes `file assignments`.
-- The file includes `dependencies`.
-- The file includes `edge cases`.
-- The file includes `validation`.
+- `docs/project-pulse-plan.md` exists.
+- The file includes Project Pulse, Planner, Designer, Coder, all three app files, dependencies, parallel or sequential work, and validation.
 
-### Transition
-
-After the Planner handoff is ready, the learner turns planning output into an execution plan that the Orchestrator can run.
-
-## Step 3: Map work to specialist agents
+## Step 3: Build Project Pulse
 
 ### Theory
 
-The Orchestrator parses the Planner result into phases. Tasks with no overlapping files and no data dependency can run in parallel. Tasks that modify the same file or depend on earlier output must be sequential. Explicit file ownership helps avoid conflicts when delegating work to Coder and Designer.
-
-Delegation prompts should describe the outcome and file scope, not the exact implementation technique. This gives each specialist room to solve the task while keeping the Orchestrator in control of boundaries.
+The Orchestrator coordinates the build by assigning experience decisions to Designer and implementation to Coder. The learner produces a small static app rather than only documenting the plan.
 
 ### Activity
 
-1. Use Copilot CLI to review `orchestration/planner-handoff.md`.
-1. Ask Copilot CLI to create an Orchestrator execution plan.
-1. Create `orchestration/execution-plan.md` with:
-   - At least two phases.
-   - Agent assignments for Coder and Designer.
-   - File scope for each task.
-   - Clear parallel or sequential labels.
-   - A note explaining how conflicts are avoided.
+1. Ask the Orchestrator to delegate design and coding work based on `docs/project-pulse-plan.md`.
+1. Create `app/index.html`, `app/styles.css`, and `app/project-data.json`.
+1. Ensure the dashboard title, styling, and JSON data are connected.
 1. Commit and push the change.
 
 ### Action trigger
 
 - Event: `push`
-- Path filter: `orchestration/execution-plan.md`
+- Path filter: `app/**`
 
 ### Grading checks
 
-- `orchestration/execution-plan.md` exists.
-- The file includes `Phase 1` and `Phase 2`.
-- The file includes `Coder` and `Designer`.
-- The file includes `Files:`.
-- The file includes `parallel` or `PARALLEL`.
-- The file includes `sequential` or `SEQUENTIAL`.
+- `app/index.html`, `app/styles.css`, and `app/project-data.json` exist.
+- `app/index.html` includes Project Pulse and references `styles.css` and `project-data.json`.
+- `app/styles.css` includes dashboard styling.
+- `app/project-data.json` parses as JSON and includes project data.
 
-### Transition
-
-After the work is assigned to specialists, the learner completes the final Orchestrator report.
-
-## Step 4: Run the orchestration simulation
+## Step 4: Validate and hand off
 
 ### Theory
 
-The Orchestrator is responsible for more than dispatching tasks. It tracks phase progress, waits for dependent work, integrates specialist outputs, validates the result, and reports the final outcome to the user. A strong final report explains what ran, why it ran in that order, what was validated, and what changed.
+The Orchestrator closes the loop by validating the final app and summarizing what each specialist contributed.
 
 ### Activity
 
-1. Use Copilot CLI to review the previous artifacts.
-1. Ask Copilot CLI to draft the final Orchestrator handoff.
-1. Create `orchestration/final-report.md` with:
-   - A summary of the request.
-   - The agents involved.
-   - The phase order.
-   - Parallel and sequential decisions.
-   - Validation notes.
-   - A final user-facing result.
+1. Ask the Orchestrator to review `docs/agent-team.md`, `docs/project-pulse-plan.md`, and the `app/` files.
+1. Create `docs/final-handoff.md`.
+1. Include the participating agents, final result, app files, validation notes, and next steps or limitations.
 1. Commit and push the change.
 
 ### Action trigger
 
 - Event: `push`
-- Path filter: `orchestration/final-report.md`
+- Path filter: `docs/final-handoff.md`
 
 ### Grading checks
 
-- `orchestration/final-report.md` exists.
-- The file includes `Orchestrator`, `Planner`, `Coder`, and `Designer`.
-- The file includes `validation`.
-- The file includes `parallel`.
-- The file includes `sequential`.
-- The file includes `final result` or `handoff`.
-
-### Transition
-
-After the final report passes, the exercise completes and points learners to additional Copilot CLI and multi-agent workflow resources.
+- `docs/final-handoff.md` exists.
+- The file includes Project Pulse, all four agent names, all three app files, validation, and final result or handoff language.
 
 ## Review content
 
-The review step should congratulate learners for completing a terminal-first agent orchestration workflow and recap that they:
+The review step should recap that learners:
 
 - Used GitHub Copilot CLI in Codespaces.
-- Mapped agent roles and model assignments.
-- Wrote a Planner handoff.
-- Converted work into phases and specialist assignments.
-- Prevented file conflicts through explicit file scopes.
-- Produced a final Orchestrator report with validation.
-
-### What's next
-
-Suggested next steps:
-
-- Try the same orchestration pattern on a real feature in one of your repositories.
-- Use `/agent`, `/model`, `/tasks`, and `/fleet` in GitHub Copilot CLI to explore agent and subagent workflows.
-- Add repository instructions that explain when to use Planner, Coder, Designer, and Orchestrator roles.
-- Explore GitHub Codespaces dev container configuration for repeatable CLI-first development environments.
+- Inspected prebuilt custom agents.
+- Used an Orchestrator to involve Planner, Designer, and Coder.
+- Created an implementation plan.
+- Built a small static dashboard.
+- Validated the result and wrote a final handoff.
 
 ## References
 
 - GitHub Copilot CLI documentation: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
-- GitHub Copilot CLI install and usage documentation from the CLI README.
 - GitHub Copilot CLI help topics: `/agent`, `/model`, `/tasks`, `/fleet`, `/terminal-setup`, `/init`, `/skills`, and `/mcp`.
 - Source multi-agent gist: https://gist.github.com/burkeholland/0e68481f96e94bbb98134fa6efd00436#file-three-agent-md
 - GitHub Codespaces dev containers: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers
@@ -266,9 +193,7 @@ Suggested next steps:
 
 ## Bootstrap notes
 
-- Use push-based triggers for every learner step to keep the flow simple in Codespaces.
-- The template should not commit learner answer files that match Step 1-4 path filters, because copied repositories treat the template contents as an initial push.
-- `postCreate.sh` should create only the Step 1 starter file so committing all new local files in Step 1 cannot trigger later step workflows early.
-- The dev container scripts should be idempotent and should not overwrite learner work.
-- Keep step theory sections short and focused. Put longer references in "Read more" links.
-- Confirm all step instructions tell learners to work through GitHub Copilot CLI in the integrated terminal.
+- Keep `.github/agents/` prebuilt so learners use agents rather than authoring them.
+- Do not commit learner output files that match Step 1-4 path filters.
+- `postCreate.sh` should create only the Step 1 starter file, `docs/agent-team.md`.
+- Later steps should create their output files as the learner reaches them.

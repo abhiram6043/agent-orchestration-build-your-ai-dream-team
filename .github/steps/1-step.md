@@ -1,28 +1,19 @@
-## Step 1: Start in the Copilot CLI Codespace
+## Step 1: Meet the agent team
 
 Welcome to **Agent Orchestration in the GitHub Copilot CLI**! :robot:
 
-In this exercise, you will use GitHub Copilot CLI from a Codespace terminal to practice a four-agent orchestration workflow.
+Mona's team needs a small **Project Pulse** dashboard. You will use GitHub Copilot CLI to coordinate a prebuilt team of custom agents that can plan, design, code, and validate the dashboard.
 
-### What is GitHub Copilot CLI?
+### What is the goal?
 
-GitHub Copilot CLI brings Copilot into your terminal so you can ask for help, inspect files, edit content, run commands, and work through tasks without leaving the command line.
+The goal is not to write every file with one prompt. The goal is to practice orchestration:
 
-For this exercise, the terminal is the main workspace. Codespaces gives everyone a consistent environment, and Copilot CLI is the interface you will use to complete each activity.
+- The **Orchestrator** coordinates the request.
+- The **Planner** creates implementation phases and file ownership.
+- The **Designer** guides the dashboard experience.
+- The **Coder** implements the static app files.
 
-### The four-agent orchestration model
-
-You will practice this agent model:
-
-| Agent | Model | Responsibility |
-| --- | --- | --- |
-| Orchestrator | Opus 4.7 | Coordinates the request, delegates to specialists, sequences phases, prevents file conflicts, integrates results, and validates the outcome. |
-| Planner | Opus 4.7 | Researches context and produces a practical implementation plan with steps, file assignments, dependencies, edge cases, and open questions. |
-| Coder | GPT-5.5 | Implements code-oriented tasks and fixes, following existing project patterns and quality expectations. |
-| Designer | Gemini 3.1 Pro | Handles UI/UX direction, usability, accessibility, and visual design choices. |
-
-> [!NOTE]
-> This exercise is a guided simulation. You will document the orchestration workflow in repository files, even if every named model is not available in your account.
+The custom agent definitions are already available in `.github/agents/`. Your first task is to inspect that team and document how you will use it.
 
 ### :keyboard: Activity: Open the Codespace and start Copilot CLI
 
@@ -37,8 +28,6 @@ You will practice this agent model:
 
 1. Wait for the Codespace to finish loading.
 
-1. Open the integrated terminal. If it is not already visible, use **Terminal: Create New Terminal** from the command palette.
-
 1. The Codespace opens a terminal in the editor area and starts GitHub Copilot CLI with broad exercise permissions.
 
 > [!NOTE]
@@ -48,36 +37,34 @@ You will practice this agent model:
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. If the CLI is not already running, start it with `copilot --allow-all --enable-all-github-mcp-tools`. If prompted, use `/login` to authenticate.
+1. If prompted, use `/login` to authenticate.
 
 > [!NOTE]
 > Copy and paste should work in the Codespace terminal with standard browser shortcuts. You can also select text to copy it automatically, then right-click in the terminal to paste. If multiline input is awkward, run `/terminal-setup` inside Copilot CLI.
 
-1. Ask Copilot CLI to inspect the repository agent definitions:
+### :keyboard: Activity: Inspect the custom agents
+
+1. Ask Copilot CLI to inspect the agent definitions:
 
    ```prompt
-   Inspect .github/agents/ and summarize the agents I will use in this exercise.
+   Inspect .github/agents/ and summarize the custom agent team I will use to build Mona's Project Pulse dashboard.
    ```
 
-### :keyboard: Activity: Map the agents
+1. Update `docs/agent-team.md` with:
 
-1. Use Copilot CLI to update `orchestration/agent-roles.md` based on the files in `.github/agents/`.
-
-1. Your file should include:
-
-   - The Orchestrator, Planner, Coder, and Designer agents.
-   - The model assignment for each agent.
-   - A short responsibility for each agent.
-   - A reference to the `.github/agents/` files.
-   - A note that this exercise is completed with GitHub Copilot CLI in Codespaces.
+   - Orchestrator, Planner, Coder, and Designer.
+   - The model assigned to each agent.
+   - The responsibility of each agent.
+   - The `.github/agents/` file for each agent.
+   - How the team will work together to build Project Pulse.
 
 1. Save the file.
 
-1. From the terminal, commit and push your work:
+1. Commit and push your work:
 
    ```bash
-   git add orchestration/agent-roles.md
-   git commit -m "Map orchestration agent roles"
+   git add docs/agent-team.md
+   git commit -m "Document the Project Pulse agent team"
    git push
    ```
 
@@ -86,8 +73,8 @@ You will practice this agent model:
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- Make sure you updated `orchestration/agent-roles.md`.
-- Make sure your summary references the `.github/agents/` files.
+- Make sure you updated `docs/agent-team.md`.
+- Make sure the file references `.github/agents/`.
 - Make sure the file includes all four agent names.
 - Make sure the file uses the updated models: Opus 4.7, GPT-5.5, and Gemini 3.1 Pro.
 - Make sure you pushed your commit.

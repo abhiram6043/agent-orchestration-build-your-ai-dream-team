@@ -90,10 +90,12 @@ for step in 1 2 3 4; do
 done
 
 declare -a learner_files=(
-  "orchestration/agent-roles.md"
-  "orchestration/planner-handoff.md"
-  "orchestration/execution-plan.md"
-  "orchestration/final-report.md"
+  "docs/agent-team.md"
+  "docs/project-pulse-plan.md"
+  "docs/final-handoff.md"
+  "app/index.html"
+  "app/styles.css"
+  "app/project-data.json"
 )
 
 tracked_learner_files="$(git ls-files "${learner_files[@]}" || true)"
@@ -103,7 +105,18 @@ else
   fail "Learner answer files are tracked in the template: $tracked_learner_files"
 fi
 
-require_file orchestration/sample-request.md
+require_file .github/project-pulse-brief.md
+if [ -e orchestration ]; then
+  fail "orchestration directory should not exist in the template"
+else
+  pass "orchestration directory is not present in the template"
+fi
+
+require_grep 'docs/agent-team.md' .github/workflows/1-step.yml "Step 1 watches docs/agent-team.md"
+require_grep 'docs/project-pulse-plan.md' .github/workflows/2-step.yml "Step 2 watches docs/project-pulse-plan.md"
+require_grep 'app/\*\*' .github/workflows/3-step.yml "Step 3 watches app outputs"
+require_grep 'docs/final-handoff.md' .github/workflows/4-step.yml "Step 4 watches docs/final-handoff.md"
+require_grep 'Project Pulse' README.md "README explains Project Pulse story"
 
 if command -v copilot >/dev/null 2>&1; then
   copilot --version >/dev/null

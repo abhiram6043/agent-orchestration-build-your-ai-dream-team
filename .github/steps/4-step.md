@@ -1,20 +1,19 @@
-## Step 4: Run the orchestration simulation
+## Step 4: Validate and hand off the dashboard
 
-You have an execution plan. Now it is time to finish the Orchestrator handoff. :rocket:
+You built Project Pulse. Now finish the orchestration loop. :rocket:
 
-### What the Orchestrator reports
+### What should the Orchestrator report?
 
-The Orchestrator is responsible for more than dispatching tasks. It should:
+The Orchestrator is responsible for more than dispatching work. It should explain:
 
-- Track phase progress.
-- Wait for dependent work.
-- Integrate specialist outputs.
-- Validate that the result hangs together.
-- Report the final outcome clearly to the user.
+- Which agents participated.
+- How the plan was used.
+- What Designer contributed.
+- What Coder implemented.
+- What validation was completed.
+- What the final result is.
 
-A strong final report explains what ran, why it ran in that order, what was validated, and what changed.
-
-### :keyboard: Activity: Write the final report
+### :keyboard: Activity: Validate and summarize
 
 1. Return to your Codespace terminal.
 
@@ -27,31 +26,27 @@ A strong final report explains what ran, why it ran in that order, what was vali
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. Ask Copilot CLI to review the artifacts you created:
+1. Ask the Orchestrator to validate and summarize the work:
 
    ```prompt
-   Review orchestration/agent-roles.md, orchestration/planner-handoff.md, and orchestration/execution-plan.md. Help me draft the final Orchestrator report with phase order, parallel and sequential decisions, validation notes, and a final result.
+   Use the Orchestrator agent pattern. Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/. Validate the Project Pulse dashboard and write a final handoff in docs/final-handoff.md.
    ```
 
-1. Create `orchestration/final-report.md`.
+1. Review `docs/final-handoff.md`.
 
-1. Your final report should include:
+1. Make sure the handoff includes:
 
-   - The original request summary.
-   - The Orchestrator, Planner, Coder, and Designer.
-   - The phase order.
-   - Parallel decisions.
-   - Sequential decisions.
+   - Orchestrator, Planner, Designer, and Coder.
+   - The final Project Pulse result.
+   - The app files that were created.
    - Validation notes.
-   - A final result or handoff.
-
-1. Save the file.
+   - Any next steps or limitations.
 
 1. Commit and push your work:
 
    ```bash
-   git add orchestration/final-report.md
-   git commit -m "Write final orchestration report"
+   git add docs/final-handoff.md
+   git commit -m "Validate and hand off Project Pulse"
    git push
    ```
 
@@ -60,9 +55,9 @@ A strong final report explains what ran, why it ran in that order, what was vali
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- Make sure you updated `orchestration/final-report.md`.
+- Make sure you created `docs/final-handoff.md`.
 - Include all four agent names.
-- Include the words `validation`, `parallel`, `sequential`, and either `final result` or `handoff`.
+- Include `Project Pulse`, `validation`, and the app file names.
 - Make sure you pushed your commit.
 
 </details>

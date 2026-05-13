@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - orchestration/agent-roles.md
+      - docs/agent-team.md
 
 permissions:
   contents: write
@@ -59,12 +59,12 @@ jobs:
           file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
           edit-mode: replace
 
-      - name: Check agent roles file exists
-        id: check-agent-roles-file
+      - name: Check agent team file exists
+        id: check-agent-team-file
         continue-on-error: true
         uses: skills/exercise-toolkit/actions/file-exists@v0.9.3
         with:
-          file: orchestration/agent-roles.md
+          file: docs/agent-team.md
 
       - name: Check orchestrator agent exists
         id: check-orchestrator-agent
@@ -99,7 +99,7 @@ jobs:
         continue-on-error: true
         uses: skills/action-keyphrase-checker@v2
         with:
-          text-file: orchestration/agent-roles.md
+          text-file: docs/agent-team.md
           keyphrase: Orchestrator
 
       - name: Check for Planner
@@ -107,7 +107,7 @@ jobs:
         continue-on-error: true
         uses: skills/action-keyphrase-checker@v2
         with:
-          text-file: orchestration/agent-roles.md
+          text-file: docs/agent-team.md
           keyphrase: Planner
 
       - name: Check for Coder
@@ -115,7 +115,7 @@ jobs:
         continue-on-error: true
         uses: skills/action-keyphrase-checker@v2
         with:
-          text-file: orchestration/agent-roles.md
+          text-file: docs/agent-team.md
           keyphrase: Coder
 
       - name: Check for Designer
@@ -123,28 +123,33 @@ jobs:
         continue-on-error: true
         uses: skills/action-keyphrase-checker@v2
         with:
-          text-file: orchestration/agent-roles.md
+          text-file: docs/agent-team.md
           keyphrase: Designer
 
       - name: Check for updated models
         id: check-models
         continue-on-error: true
         run: |
-          grep -q 'Opus 4.7' orchestration/agent-roles.md
-          grep -q 'GPT-5.5' orchestration/agent-roles.md
-          grep -q 'Gemini 3.1 Pro' orchestration/agent-roles.md
+          grep -q 'Opus 4.7' docs/agent-team.md
+          grep -q 'GPT-5.5' docs/agent-team.md
+          grep -q 'Gemini 3.1 Pro' docs/agent-team.md
 
       - name: Check for CLI and Codespaces
         id: check-cli-codespaces
         continue-on-error: true
         run: |
-          grep -Eq 'GitHub Copilot CLI|Copilot CLI' orchestration/agent-roles.md
-          grep -q 'Codespaces' orchestration/agent-roles.md
+          grep -Eq 'GitHub Copilot CLI|Copilot CLI' docs/agent-team.md
+          grep -q 'Codespaces' docs/agent-team.md
 
       - name: Check learner references agent definitions
         id: check-agent-definition-reference
         continue-on-error: true
-        run: grep -q '.github/agents' orchestration/agent-roles.md
+        run: grep -q '.github/agents' docs/agent-team.md
+
+      - name: Check Project Pulse context
+        id: check-project-pulse
+        continue-on-error: true
+        run: grep -q 'Project Pulse' docs/agent-team.md
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -157,8 +162,8 @@ jobs:
           vars: |
             step_number: 1
             results_table:
-              - description: "Checked for orchestration/agent-roles.md"
-                passed: ${{ steps.check-agent-roles-file.outcome == 'success' }}
+              - description: "Checked for docs/agent-team.md"
+                passed: ${{ steps.check-agent-team-file.outcome == 'success' }}
               - description: "Checked for the Orchestrator agent definition"
                 passed: ${{ steps.check-orchestrator-agent.outcome == 'success' }}
               - description: "Checked for the Planner agent definition"
@@ -181,6 +186,8 @@ jobs:
                 passed: ${{ steps.check-cli-codespaces.outcome == 'success' }}
               - description: "Checked that the summary references .github/agents"
                 passed: ${{ steps.check-agent-definition-reference.outcome == 'success' }}
+              - description: "Checked for Project Pulse context"
+                passed: ${{ steps.check-project-pulse.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')
