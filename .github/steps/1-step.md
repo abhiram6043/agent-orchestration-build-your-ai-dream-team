@@ -39,13 +39,19 @@ You will practice this agent model:
 
 1. Open the integrated terminal. If it is not already visible, use **Terminal: Create New Terminal** from the command palette.
 
-1. The Codespace opens a terminal in the editor area and starts GitHub Copilot CLI with broad exercise permissions:
+1. The Codespace opens a terminal in the editor area and starts GitHub Copilot CLI with broad exercise permissions.
+
+> [!NOTE]
+> If you are not already in the Copilot CLI interactive mode, run this command.
 
    ```bash
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
 1. If the CLI is not already running, start it with `copilot --allow-all --enable-all-github-mcp-tools`. If prompted, use `/login` to authenticate.
+
+> [!NOTE]
+> Copy and paste should work in the Codespace terminal with standard browser shortcuts. You can also select text to copy it automatically, then right-click in the terminal to paste. If multiline input is awkward, run `/terminal-setup` inside Copilot CLI.
 
 1. Ask Copilot CLI to inspect the repository agent definitions:
 

@@ -20,6 +20,9 @@ A strong final report explains what ran, why it ran in that order, what was vali
 
 1. Start Copilot CLI if needed:
 
+> [!NOTE]
+> If you are not already in the Copilot CLI interactive mode, run this command.
+
    ```bash
    copilot --allow-all --enable-all-github-mcp-tools
    ```

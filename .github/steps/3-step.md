@@ -20,6 +20,9 @@ Delegation prompts should describe **what** outcome is needed and **which files*
 
 1. Start Copilot CLI if needed:
 
+> [!NOTE]
+> If you are not already in the Copilot CLI interactive mode, run this command.
+
    ```bash
    copilot --allow-all --enable-all-github-mcp-tools
    ```

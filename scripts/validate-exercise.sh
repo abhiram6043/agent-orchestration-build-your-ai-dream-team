@@ -63,6 +63,9 @@ require_executable .devcontainer/postStart.sh
 
 require_grep '"waitFor": "postCreateCommand"' .devcontainer/devcontainer.json "Codespace waits for postCreate setup"
 require_grep '"terminal.integrated.defaultLocation": "editor"' .devcontainer/devcontainer.json "Terminal default location is editor"
+require_grep '"terminal.integrated.copyOnSelection": true' .devcontainer/devcontainer.json "Terminal copies selected text automatically"
+require_grep '"terminal.integrated.rightClickBehavior": "copyPaste"' .devcontainer/devcontainer.json "Terminal right-click supports copy/paste"
+require_grep '"terminal.integrated.enableMultiLinePasteWarning": false' .devcontainer/devcontainer.json "Terminal multiline paste warning is disabled"
 require_grep '"task.allowAutomaticTasks": "on"' .devcontainer/devcontainer.json "Automatic folder-open task is enabled"
 require_grep '"runOn": "folderOpen"' .vscode/tasks.json "Folder-open task displays the final terminal"
 
@@ -72,6 +75,7 @@ require_grep 'copilot --allow-all --enable-all-github-mcp-tools' .devcontainer/p
 require_grep 'exec copilot --allow-all --enable-all-github-mcp-tools' .devcontainer/postStart.sh "Folder-open terminal starts Copilot CLI with all GitHub MCP tools"
 for step_file in .github/steps/1-step.md .github/steps/2-step.md .github/steps/3-step.md .github/steps/4-step.md; do
   require_grep 'copilot --allow-all --enable-all-github-mcp-tools' "$step_file" "$step_file starts Copilot CLI with all GitHub MCP tools"
+  require_grep '^> \[!NOTE\]$' "$step_file" "$step_file includes a left-aligned NOTE before the launch command"
 done
 if grep -q 'npm install -g @github/copilot' .devcontainer/postCreate.sh; then
   fail "postCreate.sh should not install Copilot CLI with npm"
