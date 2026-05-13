@@ -24,7 +24,7 @@ A useful Planner handoff includes:
 1. Start Copilot CLI if it is not already running:
 
    ```bash
-   copilot --allow-all
+   copilot --allow-all --enable-all-github-mcp-tools
    ```
 
 1. Ask Copilot CLI to read the sample request:

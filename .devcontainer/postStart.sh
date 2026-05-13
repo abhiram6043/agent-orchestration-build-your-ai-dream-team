@@ -10,11 +10,11 @@ GitHub Copilot CLI stays front and center.
 
 Starting the CLI with broad exercise permissions:
 
-  copilot --allow-all
+  copilot --allow-all --enable-all-github-mcp-tools
 
 If prompted, use /login inside Copilot CLI. Then follow Mona's current
 step instructions in the exercise issue.
 
 MESSAGE
 
-exec copilot --allow-all
+exec copilot --allow-all --enable-all-github-mcp-tools

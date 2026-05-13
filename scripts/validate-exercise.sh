@@ -68,9 +68,11 @@ require_grep '"runOn": "folderOpen"' .vscode/tasks.json "Folder-open task displa
 
 require_grep 'https://gh.io/copilot-install' .devcontainer/postCreate.sh "Copilot CLI installs with official install script"
 require_grep 'copilot --version' .devcontainer/postCreate.sh "Copilot CLI install is smoke tested"
-require_grep 'copilot --allow-all' .devcontainer/postCreate.sh "postCreate guidance uses copilot --allow-all"
-require_grep 'exec copilot --allow-all' .devcontainer/postStart.sh "Folder-open terminal starts Copilot CLI with --allow-all"
-require_grep 'copilot --allow-all' .github/steps/1-step.md "Step 1 starts Copilot CLI with --allow-all"
+require_grep 'copilot --allow-all --enable-all-github-mcp-tools' .devcontainer/postCreate.sh "postCreate guidance enables all GitHub MCP tools"
+require_grep 'exec copilot --allow-all --enable-all-github-mcp-tools' .devcontainer/postStart.sh "Folder-open terminal starts Copilot CLI with all GitHub MCP tools"
+for step_file in .github/steps/1-step.md .github/steps/2-step.md .github/steps/3-step.md .github/steps/4-step.md; do
+  require_grep 'copilot --allow-all --enable-all-github-mcp-tools' "$step_file" "$step_file starts Copilot CLI with all GitHub MCP tools"
+done
 if grep -q 'npm install -g @github/copilot' .devcontainer/postCreate.sh; then
   fail "postCreate.sh should not install Copilot CLI with npm"
 else

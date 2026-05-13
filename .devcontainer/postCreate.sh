@@ -54,5 +54,5 @@ fi
 echo ""
 echo "Setup complete."
 echo "The final terminal will open in the editor area."
-echo "The terminal starts Copilot CLI with: copilot --allow-all"
+echo "The terminal starts Copilot CLI with: copilot --allow-all --enable-all-github-mcp-tools"
 echo "If prompted, use /login inside Copilot CLI."

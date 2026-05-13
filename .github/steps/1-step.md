@@ -42,10 +42,10 @@ You will practice this agent model:
 1. The Codespace opens a terminal in the editor area and starts GitHub Copilot CLI with broad exercise permissions:
 
    ```bash
-   copilot --allow-all
+   copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. If the CLI is not already running, start it with `copilot --allow-all`. If prompted, use `/login` to authenticate.
+1. If the CLI is not already running, start it with `copilot --allow-all --enable-all-github-mcp-tools`. If prompted, use `/login` to authenticate.
 
 1. Ask Copilot CLI to inspect the repository agent definitions:
 
