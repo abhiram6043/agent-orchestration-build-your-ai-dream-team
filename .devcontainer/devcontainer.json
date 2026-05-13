@@ -1,11 +1,16 @@
 {
   "name": "Agent Orchestration in the Copilot CLI",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "waitFor": "postCreateCommand",
   "postCreateCommand": "bash .devcontainer/postCreate.sh",
-  "postStartCommand": "bash .devcontainer/postStart.sh",
+  "postStartCommand": "true",
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/codespace/.local/bin"
+  },
   "customizations": {
     "vscode": {
       "settings": {
+        "task.allowAutomaticTasks": "on",
         "terminal.integrated.defaultProfile.linux": "bash",
         "terminal.integrated.defaultLocation": "editor",
         "terminal.integrated.tabs.enabled": true,
