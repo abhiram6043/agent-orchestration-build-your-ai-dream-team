@@ -73,7 +73,7 @@ The dev container should:
 - Install or verify GitHub Copilot CLI availability.
 - Verify GitHub CLI availability.
 - Keep the integrated terminal prominent for the exercise.
-- Configure the workspace so learners can begin with `copilot` from the terminal.
+- Configure the workspace so learners begin with `copilot --allow-all` from the terminal.
 - Print a short orientation message after create/start events.
 - Avoid requiring learners to install local desktop tools outside Codespaces.
 
@@ -100,7 +100,7 @@ The four agents in this exercise are:
 
 1. Open the exercise in Codespaces.
 1. Open the integrated terminal in the editor area.
-1. Start GitHub Copilot CLI with `copilot`.
+1. Start GitHub Copilot CLI with `copilot --allow-all`.
 1. Ask Copilot CLI to inspect `.github/agents/` and summarize the repository agent definitions.
 1. Update `orchestration/agent-roles.md` so it captures the four agents, requested models, responsibilities, and the CLI-first workflow.
 1. Commit and push the change.

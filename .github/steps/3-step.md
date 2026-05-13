@@ -21,7 +21,7 @@ Delegation prompts should describe **what** outcome is needed and **which files*
 1. Start Copilot CLI if needed:
 
    ```bash
-   copilot
+   copilot --allow-all
    ```
 
 1. Ask Copilot CLI to review your Planner handoff:

@@ -39,13 +39,13 @@ You will practice this agent model:
 
 1. Open the integrated terminal. If it is not already visible, use **Terminal: Create New Terminal** from the command palette.
 
-1. In the terminal, start GitHub Copilot CLI:
+1. The Codespace opens a terminal in the editor area and starts GitHub Copilot CLI with broad exercise permissions:
 
    ```bash
-   copilot
+   copilot --allow-all
    ```
 
-1. If prompted, use `/login` to authenticate.
+1. If the CLI is not already running, start it with `copilot --allow-all`. If prompted, use `/login` to authenticate.
 
 1. Ask Copilot CLI to inspect the repository agent definitions:
 

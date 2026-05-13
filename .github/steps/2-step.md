@@ -24,7 +24,7 @@ A useful Planner handoff includes:
 1. Start Copilot CLI if it is not already running:
 
    ```bash
-   copilot
+   copilot --allow-all
    ```
 
 1. Ask Copilot CLI to read the sample request:

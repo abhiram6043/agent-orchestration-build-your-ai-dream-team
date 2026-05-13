@@ -68,6 +68,9 @@ require_grep '"runOn": "folderOpen"' .vscode/tasks.json "Folder-open task displa
 
 require_grep 'https://gh.io/copilot-install' .devcontainer/postCreate.sh "Copilot CLI installs with official install script"
 require_grep 'copilot --version' .devcontainer/postCreate.sh "Copilot CLI install is smoke tested"
+require_grep 'copilot --allow-all' .devcontainer/postCreate.sh "postCreate guidance uses copilot --allow-all"
+require_grep 'exec copilot --allow-all' .devcontainer/postStart.sh "Folder-open terminal starts Copilot CLI with --allow-all"
+require_grep 'copilot --allow-all' .github/steps/1-step.md "Step 1 starts Copilot CLI with --allow-all"
 if grep -q 'npm install -g @github/copilot' .devcontainer/postCreate.sh; then
   fail "postCreate.sh should not install Copilot CLI with npm"
 else

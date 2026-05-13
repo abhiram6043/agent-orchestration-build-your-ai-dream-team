@@ -54,5 +54,5 @@ fi
 echo ""
 echo "Setup complete."
 echo "The final terminal will open in the editor area."
-echo "Run: copilot"
+echo "The terminal starts Copilot CLI with: copilot --allow-all"
 echo "If prompted, use /login inside Copilot CLI."

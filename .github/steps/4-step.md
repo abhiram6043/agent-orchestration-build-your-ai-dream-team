@@ -21,7 +21,7 @@ A strong final report explains what ran, why it ran in that order, what was vali
 1. Start Copilot CLI if needed:
 
    ```bash
-   copilot
+   copilot --allow-all
    ```
 
 1. Ask Copilot CLI to review the artifacts you created:
