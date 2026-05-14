@@ -143,7 +143,7 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 ### Action trigger
 
 - Event: `push`
-- Path filter: `app/**`
+- Path filters: `app/**` and `.vscode/launch.json`
 
 ### Grading checks
 
@@ -163,7 +163,7 @@ The Orchestrator closes the loop by validating the final app and summarizing wha
 ### Activity
 
 1. Use `/agent` to select the Orchestrator.
-1. Ask the Orchestrator to review `docs/agent-team.md`, `docs/project-pulse-plan.md`, and the `app/` files.
+1. Ask the Orchestrator to review `docs/agent-team.md`, `docs/project-pulse-plan.md`, the `app/` files, and `.vscode/launch.json`.
 1. Create `docs/final-handoff.md`.
 1. Include the participating agents, final result, app files, launch configuration, validation notes, and next steps or limitations.
 1. Ask Copilot CLI to stage, commit, and push the change from interactive mode.
