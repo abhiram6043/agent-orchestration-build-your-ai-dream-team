@@ -10,6 +10,7 @@ The dashboard should help the team quickly understand:
 - recent activity
 - priority or risk level
 - a short contributor-friendly summary
+- a polished visual layout with project cards, status badges, and readable spacing
 
 The final dashboard should be a small static app with:
 
@@ -18,6 +19,8 @@ The final dashboard should be a small static app with:
 - `app/project-data.json`
 
 The implementation should also create `.vscode/launch.json` so the dashboard can run from the VS Code **Run Project Pulse Dashboard** launch configuration.
+
+When the dashboard opens, it should display the Project Pulse UI from `app/index.html`, not a server directory listing.
 
 Use a top-level `projects` array in `app/project-data.json`. Each project should include:
 

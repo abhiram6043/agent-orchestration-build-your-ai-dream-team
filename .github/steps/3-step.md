@@ -11,6 +11,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
 - A clear Project Pulse title.
 - Cards or sections for multiple projects.
 - Project name, owner, status, recent activity, and priority or risk information.
+- A polished card-based UI with status badges and clear visual hierarchy.
 - Accessible markup and readable styling.
 - Data in `app/project-data.json`.
 - A running preview from a **Run Project Pulse Dashboard** launch configuration.
@@ -46,7 +47,17 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    >
    > In app/index.html, reference styles.css and project-data.json.
    >
+   > In app/index.html, render visible project cards from the projects data.
+   >
+   > Use the class name project-card for each project card.
+   >
+   > Show each project's status, recentActivity, and priority in the UI.
+   >
    > In app/styles.css, include a .dashboard selector.
+   >
+   > In app/styles.css, include a .project-card selector.
+   >
+   > Make the UI polished with border-radius, box-shadow, and responsive layout.
    >
    > In app/project-data.json, use a top-level "projects" key.
    >
@@ -72,7 +83,10 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/index.html` includes `Project Pulse`.
    - `app/index.html` links to `styles.css`.
    - `app/index.html` loads or references `project-data.json`.
+   - `app/index.html` renders project cards with the `project-card` class.
+   - `app/index.html` shows `status`, `recentActivity`, and `priority` values.
    - `app/styles.css` includes a `.dashboard` selector.
+   - `app/styles.css` includes `.project-card`, `border-radius`, and `box-shadow`.
    - `app/project-data.json` parses as JSON and includes a top-level `projects` key.
    - Each project includes `name`, `owner`, `status`, `recentActivity`, and `priority`.
    - `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard**.
@@ -107,6 +121,8 @@ The dashboard should help contributors quickly understand Mona's team projects. 
 
 - Make sure all three app files exist.
 - Make sure `app/index.html` references `styles.css` and `project-data.json`.
+- Make sure `app/index.html` displays project cards, not a directory listing.
+- Make sure `app/styles.css` adds polished card styling.
 - Make sure `app/project-data.json` includes project data.
 - Make sure **Run Project Pulse Dashboard** opens the app in a browser.
 - Make sure you pushed your commit.

@@ -17,6 +17,15 @@ You handle design work. Your goal is to create the best possible user experience
 - Responsive behavior
 - Consistency with existing product patterns
 
+## Project Pulse design expectations
+
+When assigned Project Pulse styling:
+
+1. Create a polished dashboard, not a bare HTML page.
+1. Use visible project cards, status badges, clear priority treatment, readable spacing, and responsive layout.
+1. Include deterministic CSS hooks such as `.dashboard` and `.project-card`.
+1. Use visual affordances such as rounded corners, shadows, contrast, and clear typography.
+
 ## Rules
 
 - Stay within the files assigned by the Orchestrator.

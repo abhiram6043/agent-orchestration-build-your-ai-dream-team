@@ -91,6 +91,8 @@ require_grep 'parallel work decisions' .github/steps/2-step.md "Step 2 makes ord
 require_grep 'include a \.dashboard selector' .github/steps/3-step.md "Step 3 prompt makes dashboard CSS deterministic"
 require_grep 'top-level "projects" key' .github/steps/3-step.md "Step 3 prompt makes project data deterministic"
 require_grep 'name, owner, status, recentActivity, and priority' .github/steps/3-step.md "Step 3 prompt makes visible project fields deterministic"
+require_grep 'project-card' .github/steps/3-step.md "Step 3 prompts for visible project cards"
+require_grep 'border-radius, box-shadow' .github/steps/3-step.md "Step 3 prompts for polished UI styling"
 require_grep 'Create \.vscode/launch\.json as strict JSON with no comments\.' .github/steps/3-step.md "Step 3 has the implementation agent create launch.json"
 require_grep 'lowercase word "validation"' .github/steps/4-step.md "Step 4 prompt makes validation wording deterministic"
 require_grep 'lowercase word "handoff"' .github/steps/4-step.md "Step 4 prompt makes handoff wording deterministic"
@@ -202,6 +204,10 @@ require_grep 'docs/final-handoff.md' .github/workflows/4-step.yml "Step 4 watche
 require_grep 'Run Project Pulse Dashboard' .github/workflows/3-step.yml "Step 3 checks the launch configuration name"
 require_grep 'python3 -m json.tool \.vscode/launch\.json' .github/workflows/3-step.yml "Step 3 validates launch configuration JSON"
 require_grep 'keyphrase: \.dashboard' .github/workflows/3-step.yml "Step 3 checks the exact dashboard CSS selector"
+require_grep 'keyphrase: project-card' .github/workflows/3-step.yml "Step 3 checks project card markup"
+require_grep 'keyphrase: \.project-card' .github/workflows/3-step.yml "Step 3 checks project card styling"
+require_grep 'keyphrase: border-radius' .github/workflows/3-step.yml "Step 3 checks polished rounded styling"
+require_grep 'keyphrase: box-shadow' .github/workflows/3-step.yml "Step 3 checks polished shadow styling"
 if grep -E 'Checked that the dashboard launch configuration runs the app|check-launch-command|check-launch-url|check-server-ready-action|keyphrase: python3 -m http\.server|keyphrase: http://localhost|keyphrase: serverReadyAction' .github/workflows/3-step.yml; then
   fail "Step 3 workflow should check files and phrases only, not running apps or servers"
 else

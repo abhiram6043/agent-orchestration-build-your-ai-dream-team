@@ -115,6 +115,42 @@ jobs:
           keyphrase: project-data.json
           case-sensitive: false
 
+      - name: Check project card markup
+        id: check-project-card-markup
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: project-card
+          case-sensitive: false
+
+      - name: Check rendered status field
+        id: check-status-markup
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: status
+          case-sensitive: false
+
+      - name: Check rendered activity field
+        id: check-activity-markup
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: recentActivity
+          case-sensitive: false
+
+      - name: Check rendered priority field
+        id: check-priority-markup
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: priority
+          case-sensitive: false
+
       - name: Check dashboard styling language
         id: check-dashboard-styles
         continue-on-error: true
@@ -122,6 +158,33 @@ jobs:
         with:
           text-file: app/styles.css
           keyphrase: .dashboard
+          case-sensitive: false
+
+      - name: Check project card styling
+        id: check-project-card-styles
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/styles.css
+          keyphrase: .project-card
+          case-sensitive: false
+
+      - name: Check rounded card styling
+        id: check-border-radius
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/styles.css
+          keyphrase: border-radius
+          case-sensitive: false
+
+      - name: Check card shadow styling
+        id: check-box-shadow
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/styles.css
+          keyphrase: box-shadow
           case-sensitive: false
 
       - name: Check project data key
@@ -227,6 +290,10 @@ jobs:
                 passed: ${{ steps.check-launch-file.outcome == 'success' }}
               - description: "Checked Project Pulse dashboard content"
                 passed: ${{ steps.check-project-pulse.outcome == 'success' && steps.check-styles-reference.outcome == 'success' && steps.check-data-reference.outcome == 'success' && steps.check-dashboard-styles.outcome == 'success' && steps.check-projects-data.outcome == 'success' }}
+              - description: "Checked that the dashboard renders project cards"
+                passed: ${{ steps.check-project-card-markup.outcome == 'success' && steps.check-status-markup.outcome == 'success' && steps.check-activity-markup.outcome == 'success' && steps.check-priority-markup.outcome == 'success' }}
+              - description: "Checked for polished project card styling"
+                passed: ${{ steps.check-project-card-styles.outcome == 'success' && steps.check-border-radius.outcome == 'success' && steps.check-box-shadow.outcome == 'success' }}
               - description: "Checked project data includes name, owner, status, recent activity, and priority"
                 passed: ${{ steps.check-name-data.outcome == 'success' && steps.check-owner-data.outcome == 'success' && steps.check-status-data.outcome == 'success' && steps.check-activity-data.outcome == 'success' && steps.check-priority-data.outcome == 'success' }}
               - description: "Checked that project-data.json parses as JSON"
