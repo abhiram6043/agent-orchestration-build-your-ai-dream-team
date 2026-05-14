@@ -43,12 +43,10 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/styles.css` styles the dashboard layout.
    - `app/project-data.json` contains project data.
 
-1. Commit and push your work:
+1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
-   ```bash
-   git add app/index.html app/styles.css app/project-data.json
-   git commit -m "Build the Project Pulse dashboard"
-   git push
+   ```prompt
+   Stage app/index.html, app/styles.css, and app/project-data.json. Commit them with the message "Build the Project Pulse dashboard", and push the commit.
    ```
 
 1. Mona will check your work and post the next lesson.

@@ -45,12 +45,10 @@ For Project Pulse, the expected app files are:
    - Parallel or sequential work decisions.
    - Validation expectations.
 
-1. Commit and push your work:
+1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
-   ```bash
-   git add docs/project-pulse-plan.md
-   git commit -m "Plan the Project Pulse dashboard"
-   git push
+   ```prompt
+   Stage docs/project-pulse-plan.md, commit it with the message "Plan the Project Pulse dashboard", and push the commit.
    ```
 
 1. Mona will check your work and post the next lesson.

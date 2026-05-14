@@ -76,7 +76,13 @@ require_grep 'exec copilot --allow-all --enable-all-github-mcp-tools' .devcontai
 for step_file in .github/steps/1-step.md .github/steps/2-step.md .github/steps/3-step.md .github/steps/4-step.md; do
   require_grep 'copilot --allow-all --enable-all-github-mcp-tools' "$step_file" "$step_file starts Copilot CLI with all GitHub MCP tools"
   require_grep '^> \[!NOTE\]$' "$step_file" "$step_file includes a left-aligned NOTE before the launch command"
+  require_grep 'Copy and paste this prompt into the Copilot CLI interactive mode' "$step_file" "$step_file uses Copilot CLI for git operations"
 done
+if grep -R '^[[:space:]]*git \\(add\\|commit\\|push\\)' .github/steps; then
+  fail "Step files should not include raw git add, commit, or push commands"
+else
+  pass "Step files avoid raw git add, commit, and push commands"
+fi
 if grep -q 'npm install -g @github/copilot' .devcontainer/postCreate.sh; then
   fail "postCreate.sh should not install Copilot CLI with npm"
 else

@@ -42,12 +42,10 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    - Validation notes.
    - Any next steps or limitations.
 
-1. Commit and push your work:
+1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
-   ```bash
-   git add docs/final-handoff.md
-   git commit -m "Validate and hand off Project Pulse"
-   git push
+   ```prompt
+   Stage docs/final-handoff.md, commit it with the message "Validate and hand off Project Pulse", and push the commit.
    ```
 
 1. Mona will check your work and complete the exercise.

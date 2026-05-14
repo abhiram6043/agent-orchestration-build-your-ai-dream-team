@@ -60,12 +60,10 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
 
 1. Save the file.
 
-1. Commit and push your work:
+1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
-   ```bash
-   git add docs/agent-team.md
-   git commit -m "Document the Project Pulse agent team"
-   git push
+   ```prompt
+   Stage docs/agent-team.md, commit it with the message "Document the Project Pulse agent team", and push the commit.
    ```
 
 1. Mona will check your work and post the next lesson.
