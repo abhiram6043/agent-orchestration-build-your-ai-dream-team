@@ -112,7 +112,7 @@ The Orchestrator should ask the Planner for a practical plan before implementati
 1. Use `/agent` to select the Orchestrator.
 1. Ask the Orchestrator: `Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.`
 1. Create `docs/project-pulse-plan.md`.
-1. Ensure the plan references `app/index.html`, `app/styles.css`, `app/project-data.json`, Designer responsibilities, Coder responsibilities, dependencies, ordering decisions, and validation.
+1. Ensure the plan references `app/index.html`, `app/styles.css`, `app/project-data.json`, `.vscode/launch.json`, Designer responsibilities, Coder responsibilities, dependencies, parallel work decisions, and validation.
 1. Ask Copilot CLI to stage, commit, and push the change from interactive mode.
 
 ### Action trigger
@@ -123,7 +123,7 @@ The Orchestrator should ask the Planner for a practical plan before implementati
 ### Grading checks
 
 - `docs/project-pulse-plan.md` exists.
-- The file includes Project Pulse, Planner, Designer, Coder, all three app files, dependencies, parallel or sequential work, and validation.
+- The file includes Project Pulse, Planner, Designer, Coder, all three app files, `.vscode/launch.json`, dependencies, parallel work, and validation.
 
 ## Step 3: Build Project Pulse
 

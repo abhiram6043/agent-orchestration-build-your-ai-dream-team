@@ -86,6 +86,8 @@ for step_file in .github/steps/2-step.md .github/steps/3-step.md .github/steps/4
 done
 require_grep 'Ask the Planner to create an implementation plan for the Project Pulse dashboard\.' .github/steps/2-step.md "Step 2 asks the Orchestrator to involve the Planner"
 require_grep 'Save the plan in docs/project-pulse-plan\.md\.' .github/steps/2-step.md "Step 2 saves the Planner output"
+require_grep '\.vscode/launch\.json in the file assignments' .github/steps/2-step.md "Step 2 plans the launch configuration"
+require_grep 'parallel work decisions' .github/steps/2-step.md "Step 2 makes ordering wording deterministic"
 require_grep 'include a \.dashboard selector' .github/steps/3-step.md "Step 3 prompt makes dashboard CSS deterministic"
 require_grep 'top-level "projects" key' .github/steps/3-step.md "Step 3 prompt makes project data deterministic"
 require_grep 'name, owner, status, recentActivity, and priority' .github/steps/3-step.md "Step 3 prompt makes visible project fields deterministic"
@@ -169,11 +171,14 @@ fi
 
 require_grep 'docs/agent-team.md' .github/workflows/1-step.yml "Step 1 watches docs/agent-team.md"
 require_grep 'docs/project-pulse-plan.md' .github/workflows/2-step.yml "Step 2 watches docs/project-pulse-plan.md"
+require_grep '\.vscode/launch\.json' .github/workflows/2-step.yml "Step 2 checks launch configuration planning"
 require_grep 'app/\*\*' .github/workflows/3-step.yml "Step 3 watches app outputs"
 require_grep '\.vscode/launch\.json' .github/workflows/3-step.yml "Step 3 watches and checks the launch configuration"
 require_grep 'docs/final-handoff.md' .github/workflows/4-step.yml "Step 4 watches docs/final-handoff.md"
 require_grep 'Run Project Pulse Dashboard' .github/workflows/3-step.yml "Step 3 checks the launch configuration name"
 require_grep 'python3 -m http.server 5500' .github/workflows/3-step.yml "Step 3 checks the launch command"
+require_grep 'python3 -m json.tool \.vscode/launch\.json' .github/workflows/3-step.yml "Step 3 validates launch configuration JSON"
+require_grep 'http://localhost:%s/app/index.html' .github/workflows/3-step.yml "Step 3 checks the launch URL"
 require_grep 'keyphrase: name' .github/workflows/3-step.yml "Step 3 checks project name data"
 require_grep 'recentActivity' .github/workflows/3-step.yml "Step 3 checks recent activity data"
 require_grep 'priority' .github/workflows/3-step.yml "Step 3 checks priority data"

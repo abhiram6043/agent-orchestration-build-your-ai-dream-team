@@ -13,6 +13,7 @@ For Project Pulse, the expected app files are:
 - `app/index.html`
 - `app/styles.css`
 - `app/project-data.json`
+- `.vscode/launch.json`
 
 ### :keyboard: Activity: Create the implementation plan
 
@@ -35,6 +36,17 @@ For Project Pulse, the expected app files are:
    > Ask the Planner to create an implementation plan for the Project Pulse dashboard.
    >
    > Save the plan in docs/project-pulse-plan.md.
+   >
+   > Include app/index.html, app/styles.css, app/project-data.json,
+   > and .vscode/launch.json in the file assignments.
+   >
+   > Include Designer and Coder responsibilities.
+   >
+   > Include dependencies.
+   >
+   > Include parallel work decisions.
+   >
+   > Include validation expectations.
    > ```
 
 4. Review `docs/project-pulse-plan.md`.
@@ -43,10 +55,10 @@ For Project Pulse, the expected app files are:
 
    - The Project Pulse goal.
    - Planner involvement.
-   - File assignments for `app/index.html`, `app/styles.css`, and `app/project-data.json`.
+   - File assignments for `app/index.html`, `app/styles.css`, `app/project-data.json`, and `.vscode/launch.json`.
    - Designer and Coder responsibilities.
    - Dependencies between the files.
-   - Parallel or sequential work decisions.
+   - Parallel work decisions.
    - Validation expectations.
 
 6. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
@@ -67,7 +79,7 @@ For Project Pulse, the expected app files are:
 <summary>Having trouble? 🤷</summary><br/>
 
 - Make sure you created `docs/project-pulse-plan.md`.
-- Include `Project Pulse`, `Planner`, `Designer`, `Coder`, the three app files, and `validation`.
+- Include `Project Pulse`, `Planner`, `Designer`, `Coder`, the three app files, `.vscode/launch.json`, `parallel`, and `validation`.
 - Make sure you pushed your commit.
 
 </details>

@@ -173,6 +173,11 @@ jobs:
         continue-on-error: true
         run: python3 -m json.tool app/project-data.json >/dev/null
 
+      - name: Check launch configuration JSON
+        id: check-launch-json
+        continue-on-error: true
+        run: python3 -m json.tool .vscode/launch.json >/dev/null
+
       - name: Check launch name
         id: check-launch-name
         continue-on-error: true
@@ -196,6 +201,14 @@ jobs:
         with:
           text-file: .vscode/launch.json
           keyphrase: app/index.html
+
+      - name: Check launch URL
+        id: check-launch-url
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: .vscode/launch.json
+          keyphrase: http://localhost:%s/app/index.html
 
       - name: Check server ready action
         id: check-server-ready-action
@@ -230,8 +243,10 @@ jobs:
                 passed: ${{ steps.check-name-data.outcome == 'success' && steps.check-owner-data.outcome == 'success' && steps.check-status-data.outcome == 'success' && steps.check-activity-data.outcome == 'success' && steps.check-priority-data.outcome == 'success' }}
               - description: "Checked that project-data.json parses as JSON"
                 passed: ${{ steps.check-json.outcome == 'success' }}
+              - description: "Checked that .vscode/launch.json parses as JSON"
+                passed: ${{ steps.check-launch-json.outcome == 'success' }}
               - description: "Checked that the dashboard launch configuration runs the app"
-                passed: ${{ steps.check-launch-name.outcome == 'success' && steps.check-launch-command.outcome == 'success' && steps.check-launch-target.outcome == 'success' && steps.check-server-ready-action.outcome == 'success' }}
+                passed: ${{ steps.check-launch-name.outcome == 'success' && steps.check-launch-command.outcome == 'success' && steps.check-launch-target.outcome == 'success' && steps.check-launch-url.outcome == 'success' && steps.check-server-ready-action.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')

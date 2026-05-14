@@ -17,6 +17,8 @@ The final dashboard should be a small static app with:
 - `app/styles.css`
 - `app/project-data.json`
 
+The implementation should also create `.vscode/launch.json` so the dashboard can run from the VS Code **Run Project Pulse Dashboard** launch configuration.
+
 Use a top-level `projects` array in `app/project-data.json`. Each project should include:
 
 - `name`
