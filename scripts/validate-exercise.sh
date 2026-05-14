@@ -72,6 +72,8 @@ require_grep 'https://gh.io/copilot-install' .devcontainer/postCreate.sh "Copilo
 require_grep 'copilot --version' .devcontainer/postCreate.sh "Copilot CLI install is smoke tested"
 require_grep 'copilot --allow-all --enable-all-github-mcp-tools' .devcontainer/postCreate.sh "postCreate guidance enables all GitHub MCP tools"
 require_grep 'exec copilot --allow-all --enable-all-github-mcp-tools' .devcontainer/postStart.sh "Folder-open terminal starts Copilot CLI with all GitHub MCP tools"
+require_grep '\.vscode/launch\.json' .github/agents/coder.agent.md "Coder agent can create launch configuration when assigned"
+require_grep 'strict JSON with no comments' .github/agents/coder.agent.md "Coder agent creates deterministic launch JSON"
 for step_file in .github/steps/1-step.md .github/steps/2-step.md .github/steps/3-step.md .github/steps/4-step.md; do
   require_grep 'copilot --allow-all --enable-all-github-mcp-tools' "$step_file" "$step_file starts Copilot CLI with all GitHub MCP tools"
   require_grep '^> \[!NOTE\]$' "$step_file" "$step_file includes a left-aligned NOTE before the launch command"
