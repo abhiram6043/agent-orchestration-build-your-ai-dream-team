@@ -100,6 +100,7 @@ require_grep 'lowercase word "validation"' .github/steps/4-step.md "Step 4 promp
 require_grep 'lowercase word "handoff"' .github/steps/4-step.md "Step 4 prompt makes handoff wording deterministic"
 require_grep 'Run Project Pulse Dashboard' .github/steps/4-step.md "Step 4 handoff includes the launch configuration"
 require_grep '\.vscode/launch\.json' .github/steps/4-step.md "Step 4 handoff includes the launch file"
+require_grep 'and \.vscode/launch\.json\.' .github/steps/4-step.md "Step 4 reviews the launch configuration"
 if awk '
   /^[[:space:]]*> ```prompt$/ { in_prompt = 1; next }
   in_prompt && /^[[:space:]]*> ```$/ { in_prompt = 0; next }
@@ -179,6 +180,7 @@ require_grep 'Run Project Pulse Dashboard' .github/workflows/3-step.yml "Step 3 
 require_grep 'python3 -m http.server 5500' .github/workflows/3-step.yml "Step 3 checks the launch command"
 require_grep 'python3 -m json.tool \.vscode/launch\.json' .github/workflows/3-step.yml "Step 3 validates launch configuration JSON"
 require_grep 'http://localhost:%s/app/index.html' .github/workflows/3-step.yml "Step 3 checks the launch URL"
+require_grep 'keyphrase: \.dashboard' .github/workflows/3-step.yml "Step 3 checks the exact dashboard CSS selector"
 require_grep 'keyphrase: name' .github/workflows/3-step.yml "Step 3 checks project name data"
 require_grep 'recentActivity' .github/workflows/3-step.yml "Step 3 checks recent activity data"
 require_grep 'priority' .github/workflows/3-step.yml "Step 3 checks priority data"

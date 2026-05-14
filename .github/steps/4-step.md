@@ -31,7 +31,8 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/.
+   > Review docs/agent-team.md, docs/project-pulse-plan.md, the files in app/,
+   > and .vscode/launch.json.
    >
    > Validate the Project Pulse dashboard.
    >
@@ -83,7 +84,7 @@ The Orchestrator is responsible for more than dispatching work. It should explai
 
 - Make sure you created `docs/final-handoff.md`.
 - Include all four agent names.
-- Include `Project Pulse`, `validation`, and the app file names.
+- Include `Project Pulse`, `validation`, the app file names, and `.vscode/launch.json`.
 - Make sure you pushed your commit.
 
 </details>

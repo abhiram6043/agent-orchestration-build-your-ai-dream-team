@@ -118,7 +118,7 @@ jobs:
         uses: skills/action-keyphrase-checker@v2
         with:
           text-file: app/styles.css
-          keyphrase: dashboard
+          keyphrase: .dashboard
 
       - name: Check project data key
         id: check-projects-data

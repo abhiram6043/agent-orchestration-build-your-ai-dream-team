@@ -8,7 +8,7 @@ GitHub Copilot CLI brings an agentic coding assistant directly into your termina
 
 - **Who is this for**: Developers who have basic GitHub and GitHub Copilot familiarity and want to learn how to coordinate specialist agents from the terminal.
 - **What you'll learn**: How to use GitHub Copilot CLI in Codespaces to inspect custom agents, ask an Orchestrator to involve specialist agents, plan implementation phases, build a small dashboard, and validate the final result.
-- **What you'll build**: A runnable Project Pulse dashboard with `app/index.html`, `app/styles.css`, and `app/project-data.json`, plus planning and handoff notes in `docs/`.
+- **What you'll build**: A runnable Project Pulse dashboard with `app/index.html`, `app/styles.css`, `app/project-data.json`, and `.vscode/launch.json`, plus planning and handoff notes in `docs/`.
 - **Prerequisites**:
   - A GitHub account with access to GitHub Copilot.
   - Access to GitHub Codespaces.
