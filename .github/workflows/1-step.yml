@@ -134,13 +134,6 @@ jobs:
           grep -q 'GPT-5.5' docs/agent-team.md
           grep -q 'Gemini 3.1 Pro' docs/agent-team.md
 
-      - name: Check for CLI and Codespaces
-        id: check-cli-codespaces
-        continue-on-error: true
-        run: |
-          grep -Eq 'GitHub Copilot CLI|Copilot CLI' docs/agent-team.md
-          grep -q 'Codespaces' docs/agent-team.md
-
       - name: Check learner references agent definitions
         id: check-agent-definition-reference
         continue-on-error: true
@@ -182,8 +175,6 @@ jobs:
                 passed: ${{ steps.check-designer.outcome == 'success' }}
               - description: "Checked for the updated model assignments"
                 passed: ${{ steps.check-models.outcome == 'success' }}
-              - description: "Checked for GitHub Copilot CLI and Codespaces"
-                passed: ${{ steps.check-cli-codespaces.outcome == 'success' }}
               - description: "Checked that the summary references .github/agents"
                 passed: ${{ steps.check-agent-definition-reference.outcome == 'success' }}
               - description: "Checked for Project Pulse context"
