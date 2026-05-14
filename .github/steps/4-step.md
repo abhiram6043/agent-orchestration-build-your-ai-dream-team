@@ -17,7 +17,7 @@ The Orchestrator is responsible for more than dispatching work. It should explai
 
 1. Return to your Codespace terminal.
 
-1. Start Copilot CLI if needed:
+2. Start Copilot CLI if needed:
 
 > [!NOTE]
 > If you are not already in the Copilot CLI interactive mode, run this command.
@@ -26,7 +26,7 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. Ask the Orchestrator to validate and summarize the work:
+3. Ask the Orchestrator to validate and summarize the work:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -34,9 +34,9 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    > Use the Orchestrator agent pattern. Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/. Validate the Project Pulse dashboard and write a final handoff in docs/final-handoff.md.
    > ```
 
-1. Review `docs/final-handoff.md`.
+4. Review `docs/final-handoff.md`.
 
-1. Make sure the handoff includes:
+5. Make sure the handoff includes:
 
    - Orchestrator, Planner, Designer, and Coder.
    - The final Project Pulse result.
@@ -44,7 +44,7 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    - Validation notes.
    - Any next steps or limitations.
 
-1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
+6. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -52,7 +52,7 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    > Stage docs/final-handoff.md, commit it with the message "Validate and hand off Project Pulse", and push the commit.
    > ```
 
-1. Mona will check your work and complete the exercise.
+7. Mona will check your work and complete the exercise.
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

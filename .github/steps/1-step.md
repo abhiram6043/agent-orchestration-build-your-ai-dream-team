@@ -21,14 +21,14 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 
-1. Confirm the **Repository** field is your copy of the exercise, then select **Create Codespace**.
+2. Confirm the **Repository** field is your copy of the exercise, then select **Create Codespace**.
 
    - ✅ Your copy: `/{{full_repo_name}}`
    - ❌ Original: `/skills-dev/agent-orchestration-in-the-cli`
 
-1. Wait for the Codespace to finish loading.
+3. Wait for the Codespace to finish loading.
 
-1. The Codespace opens a terminal in the editor area and starts GitHub Copilot CLI with broad exercise permissions.
+4. The Codespace opens a terminal in the editor area and starts GitHub Copilot CLI with broad exercise permissions.
 
 > [!NOTE]
 > If you are not already in the Copilot CLI interactive mode, run this command.
@@ -37,7 +37,7 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. If prompted, use `/login` to authenticate.
+5. If prompted, use `/login` to authenticate.
 
 > [!NOTE]
 > Copy and paste should work in the Codespace terminal with standard browser shortcuts. You can also select text to copy it automatically, then right-click in the terminal to paste. If multiline input is awkward, run `/terminal-setup` inside Copilot CLI.

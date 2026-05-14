@@ -18,7 +18,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
 
 1. Return to your Codespace terminal.
 
-1. Start Copilot CLI if needed:
+2. Start Copilot CLI if needed:
 
 > [!NOTE]
 > If you are not already in the Copilot CLI interactive mode, run this command.
@@ -27,7 +27,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. Ask the Orchestrator to delegate the build:
+3. Ask the Orchestrator to delegate the build:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -35,9 +35,9 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    > Use the Orchestrator agent pattern and the plan in docs/project-pulse-plan.md. Delegate visual and accessibility decisions to Designer and implementation to Coder. Build the Project Pulse dashboard in app/index.html, app/styles.css, and app/project-data.json.
    > ```
 
-1. Review the generated files.
+4. Review the generated files.
 
-1. Make sure:
+5. Make sure:
 
    - `app/index.html` includes `Project Pulse`.
    - `app/index.html` links to `styles.css`.
@@ -45,7 +45,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/styles.css` styles the dashboard layout.
    - `app/project-data.json` contains project data.
 
-1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
+6. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -53,7 +53,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    > Stage app/index.html, app/styles.css, and app/project-data.json. Commit them with the message "Build the Project Pulse dashboard", and push the commit.
    > ```
 
-1. Mona will check your work and post the next lesson.
+7. Mona will check your work and post the next lesson.
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

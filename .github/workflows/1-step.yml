@@ -158,14 +158,6 @@ jobs:
           text-file: docs/agent-team.md
           keyphrase: Copilot CLI
 
-      - name: Check for Codespaces
-        id: check-codespaces
-        continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2
-        with:
-          text-file: docs/agent-team.md
-          keyphrase: Codespaces
-
       - name: Check learner references agent definitions
         id: check-agent-definition-reference
         continue-on-error: true

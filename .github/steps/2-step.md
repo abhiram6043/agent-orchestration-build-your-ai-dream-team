@@ -18,7 +18,7 @@ For Project Pulse, the expected app files are:
 
 1. Return to your Codespace terminal.
 
-1. Start Copilot CLI if it is not already running:
+2. Start Copilot CLI if it is not already running:
 
 > [!NOTE]
 > If you are not already in the Copilot CLI interactive mode, run this command.
@@ -27,7 +27,7 @@ For Project Pulse, the expected app files are:
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-1. Ask the Orchestrator to create a plan for Project Pulse:
+3. Ask the Orchestrator to create a plan for Project Pulse:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -35,9 +35,9 @@ For Project Pulse, the expected app files are:
    > Use the Orchestrator agent pattern. Read .github/project-pulse-brief.md and .github/agents/. Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.
    > ```
 
-1. Review `docs/project-pulse-plan.md`.
+4. Review `docs/project-pulse-plan.md`.
 
-1. Make sure the plan includes:
+5. Make sure the plan includes:
 
    - The Project Pulse goal.
    - Planner involvement.
@@ -47,7 +47,7 @@ For Project Pulse, the expected app files are:
    - Parallel or sequential work decisions.
    - Validation expectations.
 
-1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
+6. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -55,7 +55,7 @@ For Project Pulse, the expected app files are:
    > Stage docs/project-pulse-plan.md, commit it with the message "Plan the Project Pulse dashboard", and push the commit.
    > ```
 
-1. Mona will check your work and post the next lesson.
+7. Mona will check your work and post the next lesson.
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
