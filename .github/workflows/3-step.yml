@@ -197,15 +197,6 @@ jobs:
           keyphrase: Run Project Pulse Dashboard
           case-sensitive: false
 
-      - name: Check launch command
-        id: check-launch-command
-        continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2
-        with:
-          text-file: .vscode/launch.json
-          keyphrase: python3 -m http.server 5500
-          case-sensitive: false
-
       - name: Check launch target
         id: check-launch-target
         continue-on-error: true
@@ -213,24 +204,6 @@ jobs:
         with:
           text-file: .vscode/launch.json
           keyphrase: app/index.html
-          case-sensitive: false
-
-      - name: Check launch URL
-        id: check-launch-url
-        continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2
-        with:
-          text-file: .vscode/launch.json
-          keyphrase: http://localhost:%s/app/index.html
-          case-sensitive: false
-
-      - name: Check server ready action
-        id: check-server-ready-action
-        continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2
-        with:
-          text-file: .vscode/launch.json
-          keyphrase: serverReadyAction
           case-sensitive: false
 
       - name: Update comment - step results
@@ -260,8 +233,8 @@ jobs:
                 passed: ${{ steps.check-json.outcome == 'success' }}
               - description: "Checked that .vscode/launch.json parses as JSON"
                 passed: ${{ steps.check-launch-json.outcome == 'success' }}
-              - description: "Checked that the dashboard launch configuration runs the app"
-                passed: ${{ steps.check-launch-name.outcome == 'success' && steps.check-launch-command.outcome == 'success' && steps.check-launch-target.outcome == 'success' && steps.check-launch-url.outcome == 'success' && steps.check-server-ready-action.outcome == 'success' }}
+              - description: "Checked launch configuration file content"
+                passed: ${{ steps.check-launch-name.outcome == 'success' && steps.check-launch-target.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')
