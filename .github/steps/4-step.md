@@ -36,6 +36,15 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    > Validate the Project Pulse dashboard.
    >
    > Write a final handoff in docs/final-handoff.md.
+   >
+   > Include these exact agent names: Orchestrator, Planner, Designer, and Coder.
+   >
+   > Include these exact file paths: app/index.html, app/styles.css,
+   > and app/project-data.json.
+   >
+   > Include a section heading that contains the lowercase word "validation".
+   >
+   > Include a section heading that contains the lowercase word "handoff".
    > ```
 
 4. Review `docs/final-handoff.md`.
@@ -45,7 +54,8 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    - Orchestrator, Planner, Designer, and Coder.
    - The final Project Pulse result.
    - The app files that were created.
-   - Validation notes.
+   - A section heading that contains the lowercase word `validation`.
+   - A section heading that contains the lowercase word `handoff`.
    - Any next steps or limitations.
 
 6. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:

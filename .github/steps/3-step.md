@@ -40,6 +40,14 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    >
    > Build the Project Pulse dashboard in app/index.html, app/styles.css,
    > and app/project-data.json.
+   >
+   > In app/index.html, use the exact title "Project Pulse".
+   >
+   > In app/index.html, reference styles.css and project-data.json.
+   >
+   > In app/styles.css, include a .dashboard selector.
+   >
+   > In app/project-data.json, use a top-level "projects" key.
    > ```
 
 4. Review the generated files.
@@ -49,8 +57,8 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/index.html` includes `Project Pulse`.
    - `app/index.html` links to `styles.css`.
    - `app/index.html` loads or references `project-data.json`.
-   - `app/styles.css` styles the dashboard layout.
-   - `app/project-data.json` contains project data.
+   - `app/styles.css` includes a `.dashboard` selector.
+   - `app/project-data.json` parses as JSON and includes a top-level `projects` key.
 
 6. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 

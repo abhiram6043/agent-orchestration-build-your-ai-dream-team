@@ -85,6 +85,10 @@ for step_file in .github/steps/2-step.md .github/steps/3-step.md .github/steps/4
 done
 require_grep 'Ask the Planner to create an implementation plan for the Project Pulse dashboard\.' .github/steps/2-step.md "Step 2 asks the Orchestrator to involve the Planner"
 require_grep 'Save the plan in docs/project-pulse-plan\.md\.' .github/steps/2-step.md "Step 2 saves the Planner output"
+require_grep 'include a \.dashboard selector' .github/steps/3-step.md "Step 3 prompt makes dashboard CSS deterministic"
+require_grep 'top-level "projects" key' .github/steps/3-step.md "Step 3 prompt makes project data deterministic"
+require_grep 'lowercase word "validation"' .github/steps/4-step.md "Step 4 prompt makes validation wording deterministic"
+require_grep 'lowercase word "handoff"' .github/steps/4-step.md "Step 4 prompt makes handoff wording deterministic"
 if awk '
   /^[[:space:]]*> ```prompt$/ { in_prompt = 1; next }
   in_prompt && /^[[:space:]]*> ```$/ { in_prompt = 0; next }
