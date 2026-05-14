@@ -127,22 +127,60 @@ jobs:
           keyphrase: Designer
 
       - name: Check for updated models
-        id: check-models
+        id: check-opus-model
         continue-on-error: true
-        run: |
-          grep -q 'Opus 4.7' docs/agent-team.md
-          grep -q 'GPT-5.5' docs/agent-team.md
-          grep -q 'Gemini 3.1 Pro' docs/agent-team.md
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: docs/agent-team.md
+          keyphrase: Opus 4.7
+
+      - name: Check for GPT-5.5 model
+        id: check-gpt-model
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: docs/agent-team.md
+          keyphrase: GPT-5.5
+
+      - name: Check for Gemini model
+        id: check-gemini-model
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: docs/agent-team.md
+          keyphrase: Gemini 3.1 Pro
+
+      - name: Check for Copilot CLI
+        id: check-copilot-cli
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: docs/agent-team.md
+          keyphrase: Copilot CLI
+
+      - name: Check for Codespaces
+        id: check-codespaces
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: docs/agent-team.md
+          keyphrase: Codespaces
 
       - name: Check learner references agent definitions
         id: check-agent-definition-reference
         continue-on-error: true
-        run: grep -q '.github/agents' docs/agent-team.md
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: docs/agent-team.md
+          keyphrase: .github/agents
 
       - name: Check Project Pulse context
         id: check-project-pulse
         continue-on-error: true
-        run: grep -q 'Project Pulse' docs/agent-team.md
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: docs/agent-team.md
+          keyphrase: Project Pulse
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -174,7 +212,9 @@ jobs:
               - description: "Checked for the Designer role"
                 passed: ${{ steps.check-designer.outcome == 'success' }}
               - description: "Checked for the updated model assignments"
-                passed: ${{ steps.check-models.outcome == 'success' }}
+                passed: ${{ steps.check-opus-model.outcome == 'success' && steps.check-gpt-model.outcome == 'success' && steps.check-gemini-model.outcome == 'success' }}
+              - description: "Checked for GitHub Copilot CLI and Codespaces"
+                passed: ${{ steps.check-copilot-cli.outcome == 'success' && steps.check-codespaces.outcome == 'success' }}
               - description: "Checked that the summary references .github/agents"
                 passed: ${{ steps.check-agent-definition-reference.outcome == 'success' }}
               - description: "Checked for Project Pulse context"

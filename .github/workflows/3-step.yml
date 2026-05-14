@@ -80,16 +80,50 @@ jobs:
         with:
           file: app/project-data.json
 
-      - name: Check dashboard content
-        id: check-dashboard-content
+      - name: Check dashboard title
+        id: check-project-pulse
         continue-on-error: true
-        run: |
-          grep -q 'Project Pulse' app/index.html
-          grep -q 'styles.css' app/index.html
-          grep -q 'project-data.json' app/index.html
-          grep -Eiq 'dashboard|card|project' app/styles.css
-          grep -q 'projects' app/project-data.json
-          python3 -m json.tool app/project-data.json >/dev/null
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: Project Pulse
+
+      - name: Check stylesheet reference
+        id: check-styles-reference
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: styles.css
+
+      - name: Check data reference
+        id: check-data-reference
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: project-data.json
+
+      - name: Check dashboard styling language
+        id: check-dashboard-styles
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/styles.css
+          keyphrase: dashboard
+
+      - name: Check project data key
+        id: check-projects-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: projects
+
+      - name: Check project data JSON
+        id: check-json
+        continue-on-error: true
+        run: python3 -m json.tool app/project-data.json >/dev/null
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -109,7 +143,9 @@ jobs:
               - description: "Checked for app/project-data.json"
                 passed: ${{ steps.check-data-file.outcome == 'success' }}
               - description: "Checked Project Pulse dashboard content"
-                passed: ${{ steps.check-dashboard-content.outcome == 'success' }}
+                passed: ${{ steps.check-project-pulse.outcome == 'success' && steps.check-styles-reference.outcome == 'success' && steps.check-data-reference.outcome == 'success' && steps.check-dashboard-styles.outcome == 'success' && steps.check-projects-data.outcome == 'success' }}
+              - description: "Checked that project-data.json parses as JSON"
+                passed: ${{ steps.check-json.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')

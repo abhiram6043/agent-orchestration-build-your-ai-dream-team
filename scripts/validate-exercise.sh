@@ -95,7 +95,13 @@ for step in 1 2 3 4; do
   file=".github/workflows/${step}-step.yml"
   require_grep 'github\.event\.created == false' "$file" "Step $step skips branch-creation pushes"
   require_grep "github\\.event\\.head_commit\\.message != 'Initial commit'" "$file" "Step $step skips template initial commit"
+  require_grep 'uses: skills/action-keyphrase-checker@v2' "$file" "Step $step uses the keyphrase checker action"
 done
+if grep -R 'grep -' .github/workflows; then
+  fail "Workflow keyphrase checks should use skills/action-keyphrase-checker@v2 instead of inline grep"
+else
+  pass "Workflow keyphrase checks use skills/action-keyphrase-checker@v2 instead of inline grep"
+fi
 
 declare -a learner_files=(
   "docs/agent-team.md"
