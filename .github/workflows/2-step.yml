@@ -74,14 +74,6 @@ jobs:
           text-file: docs/project-pulse-plan.md
           keyphrase: Project Pulse
 
-      - name: Check Planner involvement
-        id: check-planner
-        continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2
-        with:
-          text-file: docs/project-pulse-plan.md
-          keyphrase: Planner
-
       - name: Check Designer responsibility
         id: check-designer
         continue-on-error: true
@@ -168,7 +160,7 @@ jobs:
               - description: "Checked for docs/project-pulse-plan.md"
                 passed: ${{ steps.check-plan-file.outcome == 'success' }}
               - description: "Checked for Project Pulse planning details"
-                passed: ${{ steps.check-project-pulse.outcome == 'success' && steps.check-planner.outcome == 'success' && steps.check-designer.outcome == 'success' && steps.check-coder.outcome == 'success' }}
+                passed: ${{ steps.check-project-pulse.outcome == 'success' && steps.check-designer.outcome == 'success' && steps.check-coder.outcome == 'success' }}
               - description: "Checked for app file assignments"
                 passed: ${{ steps.check-index-file-reference.outcome == 'success' && steps.check-styles-file-reference.outcome == 'success' && steps.check-data-file-reference.outcome == 'success' }}
               - description: "Checked for launch configuration assignment"

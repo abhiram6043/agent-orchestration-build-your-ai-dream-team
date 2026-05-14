@@ -54,7 +54,7 @@ For Project Pulse, the expected app files are:
 5. Make sure the plan includes:
 
    - The Project Pulse goal.
-   - Planner involvement.
+   - Implementation phases.
    - File assignments for `app/index.html`, `app/styles.css`, `app/project-data.json`, and `.vscode/launch.json`.
    - Designer and Coder responsibilities.
    - Dependencies between the files.
@@ -79,7 +79,7 @@ For Project Pulse, the expected app files are:
 <summary>Having trouble? 🤷</summary><br/>
 
 - Make sure you created `docs/project-pulse-plan.md`.
-- Include `Project Pulse`, `Planner`, `Designer`, `Coder`, the three app files, `.vscode/launch.json`, `parallel`, and `validation`.
+- Include `Project Pulse`, `Designer`, `Coder`, the three app files, `.vscode/launch.json`, `parallel`, and `validation`.
 - Make sure you pushed your commit.
 
 </details>

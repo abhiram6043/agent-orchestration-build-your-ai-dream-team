@@ -173,6 +173,11 @@ fi
 require_grep 'docs/agent-team.md' .github/workflows/1-step.yml "Step 1 watches docs/agent-team.md"
 require_grep 'docs/project-pulse-plan.md' .github/workflows/2-step.yml "Step 2 watches docs/project-pulse-plan.md"
 require_grep '\.vscode/launch\.json' .github/workflows/2-step.yml "Step 2 checks launch configuration planning"
+if grep -q 'id: check-planner' .github/workflows/2-step.yml; then
+  fail "Step 2 should not require the generated plan to self-reference Planner"
+else
+  pass "Step 2 avoids brittle Planner self-reference checks"
+fi
 require_grep 'app/\*\*' .github/workflows/3-step.yml "Step 3 watches app outputs"
 require_grep '\.vscode/launch\.json' .github/workflows/3-step.yml "Step 3 watches and checks the launch configuration"
 require_grep 'docs/final-handoff.md' .github/workflows/4-step.yml "Step 4 watches docs/final-handoff.md"

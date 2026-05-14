@@ -123,7 +123,7 @@ The Orchestrator should ask the Planner for a practical plan before implementati
 ### Grading checks
 
 - `docs/project-pulse-plan.md` exists.
-- The file includes Project Pulse, Planner, Designer, Coder, all three app files, `.vscode/launch.json`, dependencies, parallel work, and validation.
+- The file includes Project Pulse, Designer, Coder, all three app files, `.vscode/launch.json`, dependencies, parallel work, and validation.
 
 ## Step 3: Build Project Pulse
 
