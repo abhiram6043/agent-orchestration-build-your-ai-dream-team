@@ -50,7 +50,9 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
    >
    > ```prompt
    > Inspect .github/agents/ and summarize the custom agent team I will use to build
-   > Mona's Project Pulse dashboard and update the replace text in `docs/agent-team.md`.
+   > Mona's Project Pulse dashboard.
+   >
+   > Update the replace text in `docs/agent-team.md`.
    > ```
 
 1. Update `docs/agent-team.md` with:
@@ -68,7 +70,11 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Stage docs/agent-team.md, commit it with the message "Document the Project Pulse agent team", and push the commit.
+   > Stage docs/agent-team.md.
+   >
+   > Commit it with the message "Document the Project Pulse agent team".
+   >
+   > Push the commit.
    > ```
 
 1. Mona will check your work and post the next lesson.

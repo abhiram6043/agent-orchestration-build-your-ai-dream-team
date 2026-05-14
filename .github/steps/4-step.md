@@ -31,7 +31,11 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/. Validate the Project Pulse dashboard and write a final handoff in docs/final-handoff.md.
+   > Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/.
+   >
+   > Validate the Project Pulse dashboard.
+   >
+   > Write a final handoff in docs/final-handoff.md.
    > ```
 
 4. Review `docs/final-handoff.md`.
@@ -49,7 +53,11 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Stage docs/final-handoff.md, commit it with the message "Validate and hand off Project Pulse", and push the commit.
+   > Stage docs/final-handoff.md.
+   >
+   > Commit it with the message "Validate and hand off Project Pulse".
+   >
+   > Push the commit.
    > ```
 
 7. Mona will check your work and complete the exercise.

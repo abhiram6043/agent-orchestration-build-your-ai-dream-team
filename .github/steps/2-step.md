@@ -32,7 +32,9 @@ For Project Pulse, the expected app files are:
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.
+   > Ask the Planner to create an implementation plan for the Project Pulse dashboard.
+   >
+   > Save the plan in docs/project-pulse-plan.md.
    > ```
 
 4. Review `docs/project-pulse-plan.md`.
@@ -52,7 +54,11 @@ For Project Pulse, the expected app files are:
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Stage docs/project-pulse-plan.md, commit it with the message "Plan the Project Pulse dashboard", and push the commit.
+   > Stage docs/project-pulse-plan.md.
+   >
+   > Commit it with the message "Plan the Project Pulse dashboard".
+   >
+   > Push the commit.
    > ```
 
 7. Mona will check your work and post the next lesson.
