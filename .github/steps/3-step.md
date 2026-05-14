@@ -13,7 +13,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
 - Project name, owner, status, recent activity, and priority or risk information.
 - Accessible markup and readable styling.
 - Data in `app/project-data.json`.
-- A running preview from the provided **Run Project Pulse Dashboard** launch configuration.
+- A running preview from a **Run Project Pulse Dashboard** launch configuration.
 
 ### :keyboard: Activity: Delegate design and coding work
 
@@ -52,7 +52,16 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    >
    > For each project, include name, owner, status, recentActivity, and priority.
    >
-   > Make the dashboard work when opened at app/index.html by the existing
+   > Create .vscode/launch.json as strict JSON with no comments.
+   >
+   > Add a launch configuration named "Run Project Pulse Dashboard".
+   >
+   > Use this command: python3 -m http.server 5500
+   >
+   > Add serverReadyAction so it opens
+   > http://localhost:%s/app/index.html.
+   >
+   > Make the dashboard work when opened at app/index.html by the
    > Run Project Pulse Dashboard launch configuration.
    > ```
 
@@ -66,7 +75,9 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/styles.css` includes a `.dashboard` selector.
    - `app/project-data.json` parses as JSON and includes a top-level `projects` key.
    - Each project includes `name`, `owner`, `status`, `recentActivity`, and `priority`.
-   - `.vscode/launch.json` includes **Run Project Pulse Dashboard**.
+   - `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard**.
+   - `.vscode/launch.json` starts `python3 -m http.server 5500`.
+   - `.vscode/launch.json` opens `http://localhost:%s/app/index.html`.
 
 6. Run the dashboard:
 
@@ -81,7 +92,8 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Stage app/index.html, app/styles.css, and app/project-data.json.
+   > Stage app/index.html, app/styles.css, app/project-data.json,
+   > and .vscode/launch.json.
    >
    > Commit them with the message "Build the Project Pulse dashboard".
    >

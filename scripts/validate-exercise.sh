@@ -52,9 +52,6 @@ pass ".devcontainer/devcontainer.json parses as JSON"
 python3 -m json.tool .vscode/tasks.json >/dev/null
 pass ".vscode/tasks.json parses as JSON"
 
-python3 -m json.tool .vscode/launch.json >/dev/null
-pass ".vscode/launch.json parses as JSON"
-
 bash -n .devcontainer/postCreate.sh
 pass ".devcontainer/postCreate.sh parses as shell"
 
@@ -71,11 +68,6 @@ require_grep '"terminal.integrated.rightClickBehavior": "copyPaste"' .devcontain
 require_grep '"terminal.integrated.enableMultiLinePasteWarning": false' .devcontainer/devcontainer.json "Terminal multiline paste warning is disabled"
 require_grep '"task.allowAutomaticTasks": "on"' .devcontainer/devcontainer.json "Automatic folder-open task is enabled"
 require_grep '"runOn": "folderOpen"' .vscode/tasks.json "Folder-open task displays the final terminal"
-require_grep '"name": "Run Project Pulse Dashboard"' .vscode/launch.json "Dashboard launch configuration has the expected name"
-require_grep '"command": "python3 -m http.server 5500"' .vscode/launch.json "Dashboard launch configuration starts a static server"
-require_grep '"uriFormat": "http://localhost:%s/app/index.html"' .vscode/launch.json "Dashboard launch configuration opens app/index.html"
-require_grep '"serverReadyAction"' .vscode/launch.json "Dashboard launch configuration opens the browser when ready"
-
 require_grep 'https://gh.io/copilot-install' .devcontainer/postCreate.sh "Copilot CLI installs with official install script"
 require_grep 'copilot --version' .devcontainer/postCreate.sh "Copilot CLI install is smoke tested"
 require_grep 'copilot --allow-all --enable-all-github-mcp-tools' .devcontainer/postCreate.sh "postCreate guidance enables all GitHub MCP tools"
@@ -95,6 +87,9 @@ require_grep 'Save the plan in docs/project-pulse-plan\.md\.' .github/steps/2-st
 require_grep 'include a \.dashboard selector' .github/steps/3-step.md "Step 3 prompt makes dashboard CSS deterministic"
 require_grep 'top-level "projects" key' .github/steps/3-step.md "Step 3 prompt makes project data deterministic"
 require_grep 'name, owner, status, recentActivity, and priority' .github/steps/3-step.md "Step 3 prompt makes visible project fields deterministic"
+require_grep 'Create \.vscode/launch\.json as strict JSON with no comments\.' .github/steps/3-step.md "Step 3 has the implementation agent create launch.json"
+require_grep 'python3 -m http\.server 5500' .github/steps/3-step.md "Step 3 prompt makes launch command deterministic"
+require_grep 'http://localhost:%s/app/index\.html' .github/steps/3-step.md "Step 3 prompt makes launch URL deterministic"
 require_grep 'Run Project Pulse Dashboard' .github/steps/3-step.md "Step 3 explains how to run the dashboard"
 require_grep 'app/index.html' .github/steps/3-step.md "Step 3 launch guidance references the running app"
 require_grep 'lowercase word "validation"' .github/steps/4-step.md "Step 4 prompt makes validation wording deterministic"
@@ -147,9 +142,16 @@ declare -a learner_files=(
   "app/index.html"
   "app/styles.css"
   "app/project-data.json"
+  ".vscode/launch.json"
 )
 
-tracked_learner_files="$(git ls-files "${learner_files[@]}" || true)"
+tracked_learner_files="$(
+  git ls-files "${learner_files[@]}" | while IFS= read -r file; do
+    if [ -e "$file" ]; then
+      echo "$file"
+    fi
+  done
+)"
 if [ -z "$tracked_learner_files" ]; then
   pass "Learner answer files are not tracked in the template"
 else

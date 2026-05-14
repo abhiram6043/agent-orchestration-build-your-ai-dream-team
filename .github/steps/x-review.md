@@ -13,7 +13,8 @@ You learned how to:
 - Ask an Orchestrator to involve a Planner before building.
 - Separate design work from coding work.
 - Build a small static dashboard with HTML, CSS, and JSON.
-- Run the dashboard with the provided VS Code launch configuration.
+- Ask the implementation agent to create a VS Code launch configuration.
+- Run the dashboard from that launch configuration.
 - Validate the final result and write an Orchestrator handoff.
 
 ## What's next?

@@ -48,7 +48,7 @@ Learners will use prebuilt agent definitions and create these outputs:
 - `app/index.html`: Project Pulse dashboard page.
 - `app/styles.css`: dashboard styling.
 - `app/project-data.json`: dashboard data.
-- `.vscode/launch.json`: VS Code launch configuration for previewing the dashboard.
+- `.vscode/launch.json`: learner-created VS Code launch configuration for previewing the dashboard.
 - `docs/final-handoff.md`: final Orchestrator validation and handoff.
 
 ## Codespaces and dev container setup
@@ -58,7 +58,6 @@ The repository includes:
 - `.devcontainer/devcontainer.json`
 - `.devcontainer/postCreate.sh`
 - `.devcontainer/postStart.sh`
-- `.vscode/launch.json`
 - `.vscode/tasks.json`
 
 The dev container should:
@@ -68,7 +67,6 @@ The dev container should:
 - Open the terminal in the editor area after setup.
 - Start GitHub Copilot CLI with `copilot --allow-all --enable-all-github-mcp-tools`.
 - Configure terminal copy/paste ergonomics.
-- Provide a **Run Project Pulse Dashboard** launch configuration.
 - Avoid requiring learners to install local desktop tools outside Codespaces.
 
 ## Story
@@ -137,7 +135,7 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 
 1. Use `/agent` to select the Orchestrator.
 1. Ask the Orchestrator to delegate design and coding work based on `docs/project-pulse-plan.md`.
-1. Create `app/index.html`, `app/styles.css`, and `app/project-data.json`.
+1. Create `app/index.html`, `app/styles.css`, `app/project-data.json`, and `.vscode/launch.json`.
 1. Ensure the dashboard title, styling, JSON data, and launch preview are connected.
 1. Run **Run Project Pulse Dashboard** from `.vscode/launch.json`.
 1. Ask Copilot CLI to stage, commit, and push the change from interactive mode.
