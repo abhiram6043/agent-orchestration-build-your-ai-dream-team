@@ -48,6 +48,7 @@ Learners will use prebuilt agent definitions and create these outputs:
 - `app/index.html`: Project Pulse dashboard page.
 - `app/styles.css`: dashboard styling.
 - `app/project-data.json`: dashboard data.
+- `.vscode/launch.json`: VS Code launch configuration for previewing the dashboard.
 - `docs/final-handoff.md`: final Orchestrator validation and handoff.
 
 ## Codespaces and dev container setup
@@ -57,6 +58,7 @@ The repository includes:
 - `.devcontainer/devcontainer.json`
 - `.devcontainer/postCreate.sh`
 - `.devcontainer/postStart.sh`
+- `.vscode/launch.json`
 - `.vscode/tasks.json`
 
 The dev container should:
@@ -66,11 +68,12 @@ The dev container should:
 - Open the terminal in the editor area after setup.
 - Start GitHub Copilot CLI with `copilot --allow-all --enable-all-github-mcp-tools`.
 - Configure terminal copy/paste ergonomics.
+- Provide a **Run Project Pulse Dashboard** launch configuration.
 - Avoid requiring learners to install local desktop tools outside Codespaces.
 
 ## Story
 
-Mona's team needs a lightweight **Project Pulse** dashboard that shows project status, recent activity, priorities, and contributor-friendly summaries. The learner will use GitHub Copilot CLI and custom agents to orchestrate the work: Planner creates the plan, Designer guides the experience, Coder builds the static files, and Orchestrator validates and reports the final result.
+Mona's team needs a lightweight **Project Pulse** dashboard that shows project names, owners, status, recent activity, priorities, and contributor-friendly summaries. The learner will use GitHub Copilot CLI and custom agents to orchestrate the work: Planner creates the plan, Designer guides the experience, Coder builds the static files, and Orchestrator validates and reports the final runnable dashboard.
 
 ## Step 1: Meet the agent team
 
@@ -135,7 +138,8 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 1. Use `/agent` to select the Orchestrator.
 1. Ask the Orchestrator to delegate design and coding work based on `docs/project-pulse-plan.md`.
 1. Create `app/index.html`, `app/styles.css`, and `app/project-data.json`.
-1. Ensure the dashboard title, styling, and JSON data are connected.
+1. Ensure the dashboard title, styling, JSON data, and launch preview are connected.
+1. Run **Run Project Pulse Dashboard** from `.vscode/launch.json`.
 1. Ask Copilot CLI to stage, commit, and push the change from interactive mode.
 
 ### Action trigger
@@ -148,7 +152,8 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 - `app/index.html`, `app/styles.css`, and `app/project-data.json` exist.
 - `app/index.html` includes Project Pulse and references `styles.css` and `project-data.json`.
 - `app/styles.css` includes dashboard styling.
-- `app/project-data.json` parses as JSON and includes project data.
+- `app/project-data.json` parses as JSON and includes `projects`, `owner`, `status`, `recentActivity`, and `priority`.
+- `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard**.
 
 ## Step 4: Validate and hand off
 
@@ -161,7 +166,7 @@ The Orchestrator closes the loop by validating the final app and summarizing wha
 1. Use `/agent` to select the Orchestrator.
 1. Ask the Orchestrator to review `docs/agent-team.md`, `docs/project-pulse-plan.md`, and the `app/` files.
 1. Create `docs/final-handoff.md`.
-1. Include the participating agents, final result, app files, validation notes, and next steps or limitations.
+1. Include the participating agents, final result, app files, launch configuration, validation notes, and next steps or limitations.
 1. Ask Copilot CLI to stage, commit, and push the change from interactive mode.
 
 ### Action trigger
@@ -173,6 +178,7 @@ The Orchestrator closes the loop by validating the final app and summarizing wha
 
 - `docs/final-handoff.md` exists.
 - The file includes Project Pulse, all four agent names, all three app files, validation, and final result or handoff language.
+- The file references `.vscode/launch.json` and **Run Project Pulse Dashboard**.
 
 ## Review content
 
@@ -182,7 +188,7 @@ The review step should recap that learners:
 - Inspected prebuilt custom agents.
 - Used an Orchestrator to involve Planner, Designer, and Coder.
 - Created an implementation plan.
-- Built a small static dashboard.
+- Built and previewed a small static dashboard.
 - Validated the result and wrote a final handoff.
 
 ## References

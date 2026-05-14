@@ -52,6 +52,9 @@ pass ".devcontainer/devcontainer.json parses as JSON"
 python3 -m json.tool .vscode/tasks.json >/dev/null
 pass ".vscode/tasks.json parses as JSON"
 
+python3 -m json.tool .vscode/launch.json >/dev/null
+pass ".vscode/launch.json parses as JSON"
+
 bash -n .devcontainer/postCreate.sh
 pass ".devcontainer/postCreate.sh parses as shell"
 
@@ -68,6 +71,10 @@ require_grep '"terminal.integrated.rightClickBehavior": "copyPaste"' .devcontain
 require_grep '"terminal.integrated.enableMultiLinePasteWarning": false' .devcontainer/devcontainer.json "Terminal multiline paste warning is disabled"
 require_grep '"task.allowAutomaticTasks": "on"' .devcontainer/devcontainer.json "Automatic folder-open task is enabled"
 require_grep '"runOn": "folderOpen"' .vscode/tasks.json "Folder-open task displays the final terminal"
+require_grep '"name": "Run Project Pulse Dashboard"' .vscode/launch.json "Dashboard launch configuration has the expected name"
+require_grep '"command": "python3 -m http.server 5500"' .vscode/launch.json "Dashboard launch configuration starts a static server"
+require_grep '"uriFormat": "http://localhost:%s/app/index.html"' .vscode/launch.json "Dashboard launch configuration opens app/index.html"
+require_grep '"serverReadyAction"' .vscode/launch.json "Dashboard launch configuration opens the browser when ready"
 
 require_grep 'https://gh.io/copilot-install' .devcontainer/postCreate.sh "Copilot CLI installs with official install script"
 require_grep 'copilot --version' .devcontainer/postCreate.sh "Copilot CLI install is smoke tested"
@@ -87,8 +94,13 @@ require_grep 'Ask the Planner to create an implementation plan for the Project P
 require_grep 'Save the plan in docs/project-pulse-plan\.md\.' .github/steps/2-step.md "Step 2 saves the Planner output"
 require_grep 'include a \.dashboard selector' .github/steps/3-step.md "Step 3 prompt makes dashboard CSS deterministic"
 require_grep 'top-level "projects" key' .github/steps/3-step.md "Step 3 prompt makes project data deterministic"
+require_grep 'name, owner, status, recentActivity, and priority' .github/steps/3-step.md "Step 3 prompt makes visible project fields deterministic"
+require_grep 'Run Project Pulse Dashboard' .github/steps/3-step.md "Step 3 explains how to run the dashboard"
+require_grep 'app/index.html' .github/steps/3-step.md "Step 3 launch guidance references the running app"
 require_grep 'lowercase word "validation"' .github/steps/4-step.md "Step 4 prompt makes validation wording deterministic"
 require_grep 'lowercase word "handoff"' .github/steps/4-step.md "Step 4 prompt makes handoff wording deterministic"
+require_grep 'Run Project Pulse Dashboard' .github/steps/4-step.md "Step 4 handoff includes the launch configuration"
+require_grep '\.vscode/launch\.json' .github/steps/4-step.md "Step 4 handoff includes the launch file"
 if awk '
   /^[[:space:]]*> ```prompt$/ { in_prompt = 1; next }
   in_prompt && /^[[:space:]]*> ```$/ { in_prompt = 0; next }
@@ -154,7 +166,14 @@ fi
 require_grep 'docs/agent-team.md' .github/workflows/1-step.yml "Step 1 watches docs/agent-team.md"
 require_grep 'docs/project-pulse-plan.md' .github/workflows/2-step.yml "Step 2 watches docs/project-pulse-plan.md"
 require_grep 'app/\*\*' .github/workflows/3-step.yml "Step 3 watches app outputs"
+require_grep '\.vscode/launch\.json' .github/workflows/3-step.yml "Step 3 watches and checks the launch configuration"
 require_grep 'docs/final-handoff.md' .github/workflows/4-step.yml "Step 4 watches docs/final-handoff.md"
+require_grep 'Run Project Pulse Dashboard' .github/workflows/3-step.yml "Step 3 checks the launch configuration name"
+require_grep 'python3 -m http.server 5500' .github/workflows/3-step.yml "Step 3 checks the launch command"
+require_grep 'keyphrase: name' .github/workflows/3-step.yml "Step 3 checks project name data"
+require_grep 'recentActivity' .github/workflows/3-step.yml "Step 3 checks recent activity data"
+require_grep 'priority' .github/workflows/3-step.yml "Step 3 checks priority data"
+require_grep 'Run Project Pulse Dashboard' .github/workflows/4-step.yml "Step 4 checks the handoff references the launch configuration"
 require_grep 'Project Pulse' README.md "README explains Project Pulse story"
 
 if command -v copilot >/dev/null 2>&1; then

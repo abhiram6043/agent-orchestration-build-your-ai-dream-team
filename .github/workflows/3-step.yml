@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - app/**
+      - .vscode/launch.json
 
 permissions:
   contents: write
@@ -80,6 +81,13 @@ jobs:
         with:
           file: app/project-data.json
 
+      - name: Check launch configuration exists
+        id: check-launch-file
+        continue-on-error: true
+        uses: skills/exercise-toolkit/actions/file-exists@v0.9.3
+        with:
+          file: .vscode/launch.json
+
       - name: Check dashboard title
         id: check-project-pulse
         continue-on-error: true
@@ -120,10 +128,82 @@ jobs:
           text-file: app/project-data.json
           keyphrase: projects
 
+      - name: Check project name data
+        id: check-name-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: name
+
+      - name: Check project owner data
+        id: check-owner-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: owner
+
+      - name: Check project status data
+        id: check-status-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: status
+
+      - name: Check project activity data
+        id: check-activity-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: recentActivity
+
+      - name: Check project priority data
+        id: check-priority-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: priority
+
       - name: Check project data JSON
         id: check-json
         continue-on-error: true
         run: python3 -m json.tool app/project-data.json >/dev/null
+
+      - name: Check launch name
+        id: check-launch-name
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: .vscode/launch.json
+          keyphrase: Run Project Pulse Dashboard
+
+      - name: Check launch command
+        id: check-launch-command
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: .vscode/launch.json
+          keyphrase: python3 -m http.server 5500
+
+      - name: Check launch target
+        id: check-launch-target
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: .vscode/launch.json
+          keyphrase: app/index.html
+
+      - name: Check server ready action
+        id: check-server-ready-action
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: .vscode/launch.json
+          keyphrase: serverReadyAction
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -142,10 +222,16 @@ jobs:
                 passed: ${{ steps.check-styles-file.outcome == 'success' }}
               - description: "Checked for app/project-data.json"
                 passed: ${{ steps.check-data-file.outcome == 'success' }}
+              - description: "Checked for .vscode/launch.json"
+                passed: ${{ steps.check-launch-file.outcome == 'success' }}
               - description: "Checked Project Pulse dashboard content"
                 passed: ${{ steps.check-project-pulse.outcome == 'success' && steps.check-styles-reference.outcome == 'success' && steps.check-data-reference.outcome == 'success' && steps.check-dashboard-styles.outcome == 'success' && steps.check-projects-data.outcome == 'success' }}
+              - description: "Checked project data includes name, owner, status, recent activity, and priority"
+                passed: ${{ steps.check-name-data.outcome == 'success' && steps.check-owner-data.outcome == 'success' && steps.check-status-data.outcome == 'success' && steps.check-activity-data.outcome == 'success' && steps.check-priority-data.outcome == 'success' }}
               - description: "Checked that project-data.json parses as JSON"
                 passed: ${{ steps.check-json.outcome == 'success' }}
+              - description: "Checked that the dashboard launch configuration runs the app"
+                passed: ${{ steps.check-launch-name.outcome == 'success' && steps.check-launch-command.outcome == 'success' && steps.check-launch-target.outcome == 'success' && steps.check-server-ready-action.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')

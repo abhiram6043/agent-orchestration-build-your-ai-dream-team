@@ -5,6 +5,7 @@ Mona's team needs a lightweight Project Pulse dashboard for contributors.
 The dashboard should help the team quickly understand:
 
 - which projects are active
+- who owns each project
 - each project's current status
 - recent activity
 - priority or risk level
@@ -15,6 +16,14 @@ The final dashboard should be a small static app with:
 - `app/index.html`
 - `app/styles.css`
 - `app/project-data.json`
+
+Use a top-level `projects` array in `app/project-data.json`. Each project should include:
+
+- `name`
+- `owner`
+- `status`
+- `recentActivity`
+- `priority`
 
 Use the custom agents in `.github/agents/`:
 

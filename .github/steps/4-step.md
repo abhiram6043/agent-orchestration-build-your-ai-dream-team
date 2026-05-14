@@ -42,6 +42,10 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    > Include these exact file paths: app/index.html, app/styles.css,
    > and app/project-data.json.
    >
+   > Include the exact launch name "Run Project Pulse Dashboard".
+   >
+   > Include the exact launch file path .vscode/launch.json.
+   >
    > Include a section heading that contains the lowercase word "validation".
    >
    > Include a section heading that contains the lowercase word "handoff".
@@ -54,6 +58,8 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    - Orchestrator, Planner, Designer, and Coder.
    - The final Project Pulse result.
    - The app files that were created.
+   - The launch file `.vscode/launch.json`.
+   - The launch configuration **Run Project Pulse Dashboard**.
    - A section heading that contains the lowercase word `validation`.
    - A section heading that contains the lowercase word `handoff`.
    - Any next steps or limitations.

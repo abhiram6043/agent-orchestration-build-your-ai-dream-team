@@ -10,9 +10,10 @@ The dashboard should help contributors quickly understand Mona's team projects. 
 
 - A clear Project Pulse title.
 - Cards or sections for multiple projects.
-- Status, recent activity, and priority or risk information.
+- Project name, owner, status, recent activity, and priority or risk information.
 - Accessible markup and readable styling.
 - Data in `app/project-data.json`.
+- A running preview from the provided **Run Project Pulse Dashboard** launch configuration.
 
 ### :keyboard: Activity: Delegate design and coding work
 
@@ -48,6 +49,11 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    > In app/styles.css, include a .dashboard selector.
    >
    > In app/project-data.json, use a top-level "projects" key.
+   >
+   > For each project, include name, owner, status, recentActivity, and priority.
+   >
+   > Make the dashboard work when opened at app/index.html by the existing
+   > Run Project Pulse Dashboard launch configuration.
    > ```
 
 4. Review the generated files.
@@ -59,8 +65,18 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/index.html` loads or references `project-data.json`.
    - `app/styles.css` includes a `.dashboard` selector.
    - `app/project-data.json` parses as JSON and includes a top-level `projects` key.
+   - Each project includes `name`, `owner`, `status`, `recentActivity`, and `priority`.
+   - `.vscode/launch.json` includes **Run Project Pulse Dashboard**.
 
-6. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
+6. Run the dashboard:
+
+   - Open **Run and Debug** in the left activity bar.
+   - Select **Run Project Pulse Dashboard**.
+   - Press the green play button.
+   - Confirm the browser opens `app/index.html` and shows the Project Pulse dashboard.
+   - Stop the preview server before continuing.
+
+7. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -72,7 +88,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    > Push the commit.
    > ```
 
-7. Mona will check your work and post the next lesson.
+8. Mona will check your work and post the next lesson.
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
@@ -80,6 +96,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
 - Make sure all three app files exist.
 - Make sure `app/index.html` references `styles.css` and `project-data.json`.
 - Make sure `app/project-data.json` includes project data.
+- Make sure **Run Project Pulse Dashboard** opens the app in a browser.
 - Make sure you pushed your commit.
 
 </details>
