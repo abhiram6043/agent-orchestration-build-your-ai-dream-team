@@ -25,7 +25,9 @@ When the Orchestrator assigns runnable app work:
 1. Create any assigned support files needed to run or preview the app.
 1. For Project Pulse, create `.vscode/launch.json` when assigned.
 1. Use strict JSON with no comments for `.vscode/launch.json`.
-1. Prefer deterministic launch configuration names, commands, ports, and URLs.
+1. For Project Pulse, set the launch configuration `cwd` to `${workspaceFolder}/app`.
+1. For Project Pulse, open `index.html` so learners see the dashboard instead of a directory listing.
+1. Prefer deterministic launch configuration names, commands, ports, working directories, and URLs.
 1. Make the app easy for the learner to open and show.
 
 ## Rules

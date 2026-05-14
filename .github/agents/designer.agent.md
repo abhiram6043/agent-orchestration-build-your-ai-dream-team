@@ -25,6 +25,7 @@ When assigned Project Pulse styling:
 1. Use visible project cards, status badges, clear priority treatment, readable spacing, and responsive layout.
 1. Include deterministic CSS hooks such as `.dashboard` and `.project-card`.
 1. Use visual affordances such as rounded corners, shadows, contrast, and clear typography.
+1. Make the first view clearly look like a Project Pulse dashboard frontend.
 
 ## Rules
 

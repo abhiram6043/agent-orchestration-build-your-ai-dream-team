@@ -20,7 +20,7 @@ The final dashboard should be a small static app with:
 
 The implementation should also create `.vscode/launch.json` so the dashboard can run from the VS Code **Run Project Pulse Dashboard** launch configuration.
 
-When the dashboard opens, it should display the Project Pulse UI from `app/index.html`, not a server directory listing.
+When the dashboard opens, it should display the Project Pulse UI from `app/index.html`, not a server directory listing. The launch configuration should serve from the `app/` directory and open `index.html`.
 
 Use a top-level `projects` array in `app/project-data.json`. Each project should include:
 

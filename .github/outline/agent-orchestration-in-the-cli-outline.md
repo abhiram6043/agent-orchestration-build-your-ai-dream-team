@@ -137,6 +137,7 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 1. Ask the Orchestrator to delegate design and coding work based on `docs/project-pulse-plan.md`.
 1. Create `app/index.html`, `app/styles.css`, `app/project-data.json`, and `.vscode/launch.json`.
 1. Ensure the dashboard title, polished project-card UI, JSON data, and launch preview are connected.
+1. Configure `.vscode/launch.json` to serve from `app/` and open `index.html` instead of a directory listing.
 1. Run **Run Project Pulse Dashboard** from `.vscode/launch.json`.
 1. Ask Copilot CLI to stage, commit, and push the change from interactive mode.
 
@@ -152,7 +153,7 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 - `app/index.html` renders project cards with status, recent activity, and priority.
 - `app/styles.css` includes `.dashboard`, `.project-card`, `border-radius`, and `box-shadow`.
 - `app/project-data.json` parses as JSON and includes `projects`, `owner`, `status`, `recentActivity`, and `priority`.
-- `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard**.
+- `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard**, `${workspaceFolder}/app`, and `index.html`.
 
 ## Step 4: Validate and hand off
 

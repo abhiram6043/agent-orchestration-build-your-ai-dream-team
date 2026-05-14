@@ -2,7 +2,7 @@
 
 Nice! You have a plan. :tada:
 
-Now you will use the Orchestrator to delegate design and coding work so Project Pulse becomes a real static dashboard.
+Now you will use the Orchestrator to delegate design and coding work so Project Pulse becomes a real static dashboard with a polished frontend.
 
 ### What should the dashboard include?
 
@@ -38,6 +38,8 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    >
    > Delegate visual and accessibility decisions to Designer.
    >
+   > Have Designer create a polished frontend dashboard, not a plain page.
+   >
    > Delegate implementation to Coder.
    >
    > Build the Project Pulse dashboard in app/index.html, app/styles.css,
@@ -67,13 +69,15 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    >
    > Add a launch configuration named "Run Project Pulse Dashboard".
    >
-   > Use this command: python3 -m http.server 5500
+   > In launch.json, set cwd to ${workspaceFolder}/app.
+   >
+   > Use this command: python3 -m http.server 5500.
    >
    > Add serverReadyAction so it opens
-   > http://localhost:%s/app/index.html.
+   > http://localhost:%s/index.html.
    >
-   > Make the dashboard work when opened at app/index.html by the
-   > Run Project Pulse Dashboard launch configuration.
+   > Make the launch configuration open the dashboard frontend,
+   > not a directory listing.
    > ```
 
 4. Review the generated files.
@@ -90,8 +94,8 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/project-data.json` parses as JSON and includes a top-level `projects` key.
    - Each project includes `name`, `owner`, `status`, `recentActivity`, and `priority`.
    - `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard**.
-   - `.vscode/launch.json` starts `python3 -m http.server 5500`.
-   - `.vscode/launch.json` opens `http://localhost:%s/app/index.html`.
+   - `.vscode/launch.json` uses `${workspaceFolder}/app` as `cwd`.
+   - `.vscode/launch.json` opens `http://localhost:%s/index.html`.
 
 6. Run the dashboard:
 
@@ -123,6 +127,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
 - Make sure `app/index.html` references `styles.css` and `project-data.json`.
 - Make sure `app/index.html` displays project cards, not a directory listing.
 - Make sure `app/styles.css` adds polished card styling.
+- Make sure `.vscode/launch.json` opens `index.html`, not a directory root.
 - Make sure `app/project-data.json` includes project data.
 - Make sure **Run Project Pulse Dashboard** opens the app in a browser.
 - Make sure you pushed your commit.
