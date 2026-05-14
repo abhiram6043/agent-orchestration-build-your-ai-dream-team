@@ -101,6 +101,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: Orchestrator
+          case-sensitive: false
 
       - name: Check for Planner
         id: check-planner
@@ -109,6 +110,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: Planner
+          case-sensitive: false
 
       - name: Check for Coder
         id: check-coder
@@ -117,6 +119,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: Coder
+          case-sensitive: false
 
       - name: Check for Designer
         id: check-designer
@@ -125,6 +128,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: Designer
+          case-sensitive: false
 
       - name: Check for updated models
         id: check-opus-model
@@ -133,6 +137,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: Opus 4.7
+          case-sensitive: false
 
       - name: Check for GPT-5.5 model
         id: check-gpt-model
@@ -141,6 +146,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: GPT-5.5
+          case-sensitive: false
 
       - name: Check for Gemini model
         id: check-gemini-model
@@ -149,6 +155,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: Gemini 3.1 Pro
+          case-sensitive: false
 
       - name: Check learner references agent definitions
         id: check-agent-definition-reference
@@ -157,6 +164,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: .github/agents
+          case-sensitive: false
 
       - name: Check Project Pulse context
         id: check-project-pulse
@@ -165,6 +173,7 @@ jobs:
         with:
           text-file: docs/agent-team.md
           keyphrase: Project Pulse
+          case-sensitive: false
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1

@@ -134,6 +134,28 @@ if grep -R 'grep -' .github/workflows; then
 else
   pass "Workflow keyphrase checks use skills/action-keyphrase-checker@v2 instead of inline grep"
 fi
+if awk '
+  /uses: skills\/action-keyphrase-checker@v2/ { in_check = 1; saw_case = 0; next }
+  in_check && /case-sensitive: false/ { saw_case = 1 }
+  in_check && /^[[:space:]]*-[[:space:]]name:/ {
+    if (!saw_case) {
+      print FILENAME ":" FNR ": missing case-sensitive: false before next step"
+      found = 1
+    }
+    in_check = 0
+  }
+  END {
+    if (in_check && !saw_case) {
+      print FILENAME ":EOF: missing case-sensitive: false"
+      found = 1
+    }
+    exit found
+  }
+' .github/workflows/*-step.yml; then
+  pass "Workflow keyphrase checks are case-insensitive"
+else
+  fail "Workflow keyphrase checks should set case-sensitive: false"
+fi
 if grep -RE 'run:.*(test[[:space:]]+-[ef]|\[[[:space:]]+-[ef][[:space:]]|stat[[:space:]]|ls[[:space:]])|^[[:space:]]*(test[[:space:]]+-[ef]|\[[[:space:]]+-[ef][[:space:]]|stat[[:space:]]|ls[[:space:]])' .github/workflows; then
   fail "Workflow file-existence checks should use skills/exercise-toolkit/actions/file-exists@v0.9.3"
 else

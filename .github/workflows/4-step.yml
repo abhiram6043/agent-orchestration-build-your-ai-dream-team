@@ -73,6 +73,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: Project Pulse
+          case-sensitive: false
 
       - name: Check Orchestrator handoff
         id: check-orchestrator
@@ -81,6 +82,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: Orchestrator
+          case-sensitive: false
 
       - name: Check Planner handoff
         id: check-planner
@@ -89,6 +91,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: Planner
+          case-sensitive: false
 
       - name: Check Coder handoff
         id: check-coder
@@ -97,6 +100,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: Coder
+          case-sensitive: false
 
       - name: Check Designer handoff
         id: check-designer
@@ -105,6 +109,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: Designer
+          case-sensitive: false
 
       - name: Check HTML handoff
         id: check-index-file-reference
@@ -113,6 +118,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: app/index.html
+          case-sensitive: false
 
       - name: Check CSS handoff
         id: check-styles-file-reference
@@ -121,6 +127,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: app/styles.css
+          case-sensitive: false
 
       - name: Check data handoff
         id: check-data-file-reference
@@ -129,6 +136,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: app/project-data.json
+          case-sensitive: false
 
       - name: Check launch file handoff
         id: check-launch-file-reference
@@ -137,6 +145,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: .vscode/launch.json
+          case-sensitive: false
 
       - name: Check launch configuration handoff
         id: check-launch-name
@@ -145,6 +154,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: Run Project Pulse Dashboard
+          case-sensitive: false
 
       - name: Check validation notes
         id: check-validation
@@ -153,6 +163,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: validation
+          case-sensitive: false
 
       - name: Check final handoff
         id: check-handoff
@@ -161,6 +172,7 @@ jobs:
         with:
           text-file: docs/final-handoff.md
           keyphrase: handoff
+          case-sensitive: false
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
