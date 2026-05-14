@@ -27,12 +27,12 @@ For Project Pulse, the expected app files are:
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-3. Ask the Orchestrator to create a plan for Project Pulse:
+3. In Copilot CLI, run `/agent`, select **Orchestrator**, then paste this prompt:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Use the Orchestrator agent pattern. Read .github/project-pulse-brief.md and .github/agents/. Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.
+   > Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.
    > ```
 
 4. Review `docs/project-pulse-plan.md`.

@@ -97,7 +97,7 @@ GitHub Copilot CLI can use custom agents stored in `.github/agents/`. In this ex
 - `docs/agent-team.md` exists.
 - The file includes `Orchestrator`, `Planner`, `Coder`, and `Designer`.
 - The file includes `Opus 4.7`, `GPT-5.5`, and `Gemini 3.1 Pro`.
-- The file references `.github/agents/`, GitHub Copilot CLI, Codespaces, and Project Pulse.
+- The file references `.github/agents/` and Project Pulse.
 
 ## Step 2: Plan Project Pulse
 
@@ -108,7 +108,8 @@ The Orchestrator should ask the Planner for a practical plan before implementati
 ### Activity
 
 1. Read `.github/project-pulse-brief.md`.
-1. Ask the Orchestrator to involve the Planner.
+1. Use `/agent` to select the Orchestrator.
+1. Ask the Orchestrator: `Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.`
 1. Create `docs/project-pulse-plan.md`.
 1. Ensure the plan references `app/index.html`, `app/styles.css`, `app/project-data.json`, Designer responsibilities, Coder responsibilities, dependencies, ordering decisions, and validation.
 1. Ask Copilot CLI to stage, commit, and push the change from interactive mode.
@@ -131,6 +132,7 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 
 ### Activity
 
+1. Use `/agent` to select the Orchestrator.
 1. Ask the Orchestrator to delegate design and coding work based on `docs/project-pulse-plan.md`.
 1. Create `app/index.html`, `app/styles.css`, and `app/project-data.json`.
 1. Ensure the dashboard title, styling, and JSON data are connected.
@@ -156,6 +158,7 @@ The Orchestrator closes the loop by validating the final app and summarizing wha
 
 ### Activity
 
+1. Use `/agent` to select the Orchestrator.
 1. Ask the Orchestrator to review `docs/agent-team.md`, `docs/project-pulse-plan.md`, and the `app/` files.
 1. Create `docs/final-handoff.md`.
 1. Include the participating agents, final result, app files, validation notes, and next steps or limitations.

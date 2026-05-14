@@ -26,12 +26,12 @@ The Orchestrator is responsible for more than dispatching work. It should explai
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-3. Ask the Orchestrator to validate and summarize the work:
+3. In Copilot CLI, run `/agent`, select **Orchestrator**, then paste this prompt:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Use the Orchestrator agent pattern. Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/. Validate the Project Pulse dashboard and write a final handoff in docs/final-handoff.md.
+   > Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/. Validate the Project Pulse dashboard and write a final handoff in docs/final-handoff.md.
    > ```
 
 4. Review `docs/final-handoff.md`.

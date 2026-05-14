@@ -80,6 +80,10 @@ for step_file in .github/steps/1-step.md .github/steps/2-step.md .github/steps/3
   require_grep '^[[:space:]]*> !\[Static Badge\]\(https://img\.shields\.io/badge/-Prompt-text\?style=social&logo=github%20copilot\)$' "$step_file" "$step_file uses the Copilot prompt badge"
   require_grep '^[[:space:]]*> ```prompt$' "$step_file" "$step_file uses quoted prompt fences"
 done
+for step_file in .github/steps/2-step.md .github/steps/3-step.md .github/steps/4-step.md; do
+  require_grep 'run `/agent`, select \*\*Orchestrator\*\*' "$step_file" "$step_file has learners select the Orchestrator with /agent"
+done
+require_grep 'Ask the Planner to create an implementation plan for the Project Pulse dashboard\. Save the plan in docs/project-pulse-plan\.md\.' .github/steps/2-step.md "Step 2 uses the Orchestrator-to-Planner prompt"
 if grep -R '^[[:space:]]*git \\(add\\|commit\\|push\\)' .github/steps; then
   fail "Step files should not include raw git add, commit, or push commands"
 else

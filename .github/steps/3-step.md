@@ -27,12 +27,12 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    copilot --allow-all --enable-all-github-mcp-tools
    ```
 
-3. Ask the Orchestrator to delegate the build:
+3. In Copilot CLI, run `/agent`, select **Orchestrator**, then paste this prompt:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Use the Orchestrator agent pattern and the plan in docs/project-pulse-plan.md. Delegate visual and accessibility decisions to Designer and implementation to Coder. Build the Project Pulse dashboard in app/index.html, app/styles.css, and app/project-data.json.
+   > Use the plan in docs/project-pulse-plan.md. Delegate visual and accessibility decisions to Designer and implementation to Coder. Build the Project Pulse dashboard in app/index.html, app/styles.css, and app/project-data.json.
    > ```
 
 4. Review the generated files.
