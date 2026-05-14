@@ -96,11 +96,17 @@ for step in 1 2 3 4; do
   require_grep 'github\.event\.created == false' "$file" "Step $step skips branch-creation pushes"
   require_grep "github\\.event\\.head_commit\\.message != 'Initial commit'" "$file" "Step $step skips template initial commit"
   require_grep 'uses: skills/action-keyphrase-checker@v2' "$file" "Step $step uses the keyphrase checker action"
+  require_grep 'uses: skills/exercise-toolkit/actions/file-exists@v0\.9\.3' "$file" "Step $step uses the file-exists action"
 done
 if grep -R 'grep -' .github/workflows; then
   fail "Workflow keyphrase checks should use skills/action-keyphrase-checker@v2 instead of inline grep"
 else
   pass "Workflow keyphrase checks use skills/action-keyphrase-checker@v2 instead of inline grep"
+fi
+if grep -RE 'run:.*(test[[:space:]]+-[ef]|\[[[:space:]]+-[ef][[:space:]]|stat[[:space:]]|ls[[:space:]])|^[[:space:]]*(test[[:space:]]+-[ef]|\[[[:space:]]+-[ef][[:space:]]|stat[[:space:]]|ls[[:space:]])' .github/workflows; then
+  fail "Workflow file-existence checks should use skills/exercise-toolkit/actions/file-exists@v0.9.3"
+else
+  pass "Workflow file-existence checks use skills/exercise-toolkit/actions/file-exists@v0.9.3"
 fi
 
 declare -a learner_files=(
