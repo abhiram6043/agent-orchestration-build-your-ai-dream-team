@@ -29,9 +29,11 @@ For Project Pulse, the expected app files are:
 
 1. Ask the Orchestrator to create a plan for Project Pulse:
 
-   ```prompt
-   Use the Orchestrator agent pattern. Read .github/project-pulse-brief.md and .github/agents/. Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.
-   ```
+   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
+   >
+   > ```prompt
+   > Use the Orchestrator agent pattern. Read .github/project-pulse-brief.md and .github/agents/. Ask the Planner to create an implementation plan for the Project Pulse dashboard. Save the plan in docs/project-pulse-plan.md.
+   > ```
 
 1. Review `docs/project-pulse-plan.md`.
 
@@ -47,9 +49,11 @@ For Project Pulse, the expected app files are:
 
 1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
-   ```prompt
-   Stage docs/project-pulse-plan.md, commit it with the message "Plan the Project Pulse dashboard", and push the commit.
-   ```
+   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
+   >
+   > ```prompt
+   > Stage docs/project-pulse-plan.md, commit it with the message "Plan the Project Pulse dashboard", and push the commit.
+   > ```
 
 1. Mona will check your work and post the next lesson.
 

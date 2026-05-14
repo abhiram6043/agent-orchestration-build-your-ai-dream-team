@@ -77,6 +77,8 @@ for step_file in .github/steps/1-step.md .github/steps/2-step.md .github/steps/3
   require_grep 'copilot --allow-all --enable-all-github-mcp-tools' "$step_file" "$step_file starts Copilot CLI with all GitHub MCP tools"
   require_grep '^> \[!NOTE\]$' "$step_file" "$step_file includes a left-aligned NOTE before the launch command"
   require_grep 'Copy and paste this prompt into the Copilot CLI interactive mode' "$step_file" "$step_file uses Copilot CLI for git operations"
+  require_grep '^[[:space:]]*> !\[Static Badge\]\(https://img\.shields\.io/badge/-Prompt-text\?style=social&logo=github%20copilot\)$' "$step_file" "$step_file uses the Copilot prompt badge"
+  require_grep '^[[:space:]]*> ```prompt$' "$step_file" "$step_file uses quoted prompt fences"
 done
 if grep -R '^[[:space:]]*git \\(add\\|commit\\|push\\)' .github/steps; then
   fail "Step files should not include raw git add, commit, or push commands"

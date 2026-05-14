@@ -46,9 +46,12 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
 
 1. Ask Copilot CLI to inspect the agent definitions:
 
-   ```prompt
-   Inspect .github/agents/ and summarize the custom agent team I will use to build Mona's Project Pulse dashboard.
-   ```
+   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
+   >
+   > ```prompt
+   > Inspect .github/agents/ and summarize the custom agent team I will use to build
+   > Mona's Project Pulse dashboard and update the replace text in `docs/agent-team.md`.
+   > ```
 
 1. Update `docs/agent-team.md` with:
 
@@ -62,9 +65,11 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
 
 1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
-   ```prompt
-   Stage docs/agent-team.md, commit it with the message "Document the Project Pulse agent team", and push the commit.
-   ```
+   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
+   >
+   > ```prompt
+   > Stage docs/agent-team.md, commit it with the message "Document the Project Pulse agent team", and push the commit.
+   > ```
 
 1. Mona will check your work and post the next lesson.
 

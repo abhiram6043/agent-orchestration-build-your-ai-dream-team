@@ -28,9 +28,11 @@ The Orchestrator is responsible for more than dispatching work. It should explai
 
 1. Ask the Orchestrator to validate and summarize the work:
 
-   ```prompt
-   Use the Orchestrator agent pattern. Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/. Validate the Project Pulse dashboard and write a final handoff in docs/final-handoff.md.
-   ```
+   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
+   >
+   > ```prompt
+   > Use the Orchestrator agent pattern. Review docs/agent-team.md, docs/project-pulse-plan.md, and the files in app/. Validate the Project Pulse dashboard and write a final handoff in docs/final-handoff.md.
+   > ```
 
 1. Review `docs/final-handoff.md`.
 
@@ -44,9 +46,11 @@ The Orchestrator is responsible for more than dispatching work. It should explai
 
 1. Ask Copilot CLI to stage, commit, and push your work. Copy and paste this prompt into the Copilot CLI interactive mode:
 
-   ```prompt
-   Stage docs/final-handoff.md, commit it with the message "Validate and hand off Project Pulse", and push the commit.
-   ```
+   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
+   >
+   > ```prompt
+   > Stage docs/final-handoff.md, commit it with the message "Validate and hand off Project Pulse", and push the commit.
+   > ```
 
 1. Mona will check your work and complete the exercise.
 
