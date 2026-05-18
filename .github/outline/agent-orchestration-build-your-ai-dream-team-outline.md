@@ -1,8 +1,8 @@
-# Exercise Outline: Build Your AI Dream Team with GitHub Copilot CLI
+# Exercise Outline: Agent Orchestration: Build Your AI Dream Team
 
 ## Exercise overview
 
-- **Title**: Build Your AI Dream Team with GitHub Copilot CLI
+- **Title**: Agent Orchestration: Build Your AI Dream Team
 - **Repository name**: `agent-orchestration-build-your-ai-dream-team`
 - **Audience**: Developers who have basic GitHub and GitHub Copilot familiarity and want to learn how to coordinate specialist agents from the terminal.
 - **Experience level**: Intermediate

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Setting up Build Your AI Dream Team with GitHub Copilot CLI..."
+echo "Setting up Agent Orchestration: Build Your AI Dream Team..."
 
 export PATH="$HOME/.local/bin:$PATH"
 

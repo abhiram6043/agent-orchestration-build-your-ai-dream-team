@@ -1,5 +1,5 @@
 {
-  "name": "Agent Orchestration in the Copilot CLI",
+  "name": "Agent Orchestration: Build Your AI Dream Team",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "waitFor": "postCreateCommand",
   "postCreateCommand": "bash .devcontainer/postCreate.sh",

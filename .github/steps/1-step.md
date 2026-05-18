@@ -1,6 +1,6 @@
 ## Step 1: Meet the agent team
 
-Welcome to **Build Your AI Dream Team with GitHub Copilot CLI**! :robot:
+Welcome to **Agent Orchestration: Build Your AI Dream Team**! :robot:
 
 Mona's team needs a small **Project Pulse** dashboard. You will use GitHub Copilot CLI to coordinate a prebuilt team of custom agents that can plan, design, code, and validate the dashboard.
 

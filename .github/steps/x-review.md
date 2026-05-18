@@ -1,6 +1,6 @@
 ## Congratulations!
 
-You completed **Build Your AI Dream Team with GitHub Copilot CLI**. :tada:
+You completed **Agent Orchestration: Build Your AI Dream Team**. :tada:
 
 You used custom agents in GitHub Copilot CLI to plan, design, build, validate, and hand off Mona's Project Pulse dashboard.
 
