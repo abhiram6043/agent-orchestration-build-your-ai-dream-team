@@ -238,4 +238,4 @@ jobs:
     uses: skills/exercise-toolkit/.github/workflows/finish-exercise.yml@v0.9.3
     with:
       issue-url: ${{ needs.find_exercise.outputs.issue-url }}
-      exercise-title: "Agent Orchestration in the GitHub Copilot CLI"
+      exercise-title: "Build Your AI Dream Team with GitHub Copilot CLI"

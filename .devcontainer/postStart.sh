@@ -3,7 +3,7 @@ set -euo pipefail
 
 cat <<'MESSAGE'
 
-Welcome back to Agent Orchestration in the GitHub Copilot CLI.
+Welcome back to Build Your AI Dream Team with GitHub Copilot CLI.
 
 Your Codespace is ready. This terminal opens in the editor area so the
 GitHub Copilot CLI stays front and center.

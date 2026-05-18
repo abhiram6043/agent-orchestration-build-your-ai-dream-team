@@ -1,6 +1,6 @@
 ## Step 1: Meet the agent team
 
-Welcome to **Agent Orchestration in the GitHub Copilot CLI**! :robot:
+Welcome to **Build Your AI Dream Team with GitHub Copilot CLI**! :robot:
 
 Mona's team needs a small **Project Pulse** dashboard. You will use GitHub Copilot CLI to coordinate a prebuilt team of custom agents that can plan, design, code, and validate the dashboard.
 
@@ -24,7 +24,7 @@ The custom agent definitions are already available in `.github/agents/`. Your fi
 2. Confirm the **Repository** field is your copy of the exercise, then select **Create Codespace**.
 
    - ✅ Your copy: `/{{full_repo_name}}`
-   - ❌ Original: `/skills-dev/agent-orchestration-in-the-cli`
+   - ❌ Original: `/skills-dev/agent-orchestration-build-your-ai-dream-team`
 
 3. Wait for the Codespace to finish loading.
 
