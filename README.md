@@ -30,7 +30,7 @@ In this exercise, you will:
 
 Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills-dev&template_name=agent-orchestration-build-your-ai-dream-team&owner=%40me&name=skills-agent-orchestration-build-your-ai-dream-team&description=Exercise:+Agent+Orchestration:+Build+Your+AI+Dream+Team&visibility=public)
+[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=agent-orchestration-build-your-ai-dream-team&owner=%40me&name=skills-agent-orchestration-build-your-ai-dream-team&description=Exercise:+Agent+Orchestration:+Build+Your+AI+Dream+Team&visibility=public)
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
