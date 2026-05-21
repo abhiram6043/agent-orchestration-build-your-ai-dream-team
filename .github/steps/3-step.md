@@ -69,7 +69,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    >
    > Add a launch configuration named "Run Project Pulse Dashboard".
    >
-   > In launch.json, set cwd to ${workspaceFolder}/app.
+   > In launch.json, configure the launch to serve from the app directory.
    >
    > Use this command: python3 -m http.server 5500.
    >
@@ -94,7 +94,7 @@ The dashboard should help contributors quickly understand Mona's team projects. 
    - `app/project-data.json` parses as JSON and includes a top-level `projects` key.
    - Each project includes `name`, `owner`, `status`, `recentActivity`, and `priority`.
    - `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard**.
-   - `.vscode/launch.json` uses `${workspaceFolder}/app` as `cwd`.
+   - `.vscode/launch.json` serves from `app/` and opens `index.html`.
    - `.vscode/launch.json` opens `http://localhost:%s/index.html`.
 
 6. Run the dashboard:

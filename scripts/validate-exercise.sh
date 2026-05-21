@@ -211,7 +211,6 @@ require_grep 'keyphrase: project-card' .github/workflows/3-step.yml "Step 3 chec
 require_grep 'keyphrase: \.project-card' .github/workflows/3-step.yml "Step 3 checks project card styling"
 require_grep 'keyphrase: border-radius' .github/workflows/3-step.yml "Step 3 checks polished rounded styling"
 require_grep 'keyphrase: box-shadow' .github/workflows/3-step.yml "Step 3 checks polished shadow styling"
-require_grep 'keyphrase: \${workspaceFolder}/app' .github/workflows/3-step.yml "Step 3 checks launch working directory phrase"
 require_grep 'keyphrase: index.html' .github/workflows/3-step.yml "Step 3 checks launch target phrase"
 if grep -E 'Checked that the dashboard launch configuration runs the app|check-launch-command|check-launch-url|check-server-ready-action|keyphrase: python3 -m http\.server|keyphrase: http://localhost|keyphrase: serverReadyAction' .github/workflows/3-step.yml; then
   fail "Step 3 workflow should check files and phrases only, not running apps or servers"
