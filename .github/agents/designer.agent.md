@@ -33,3 +33,7 @@ When assigned Project Pulse styling:
 - Explain design tradeoffs clearly.
 - Prioritize user outcomes over decorative changes.
 - Report design decisions, files touched, and validation recommendations.
+
+## Git control
+
+- Do not stage, commit, or push changes. The learner controls all git operations through Copilot CLI prompts.

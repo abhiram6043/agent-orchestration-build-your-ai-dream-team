@@ -37,3 +37,7 @@ When the Orchestrator assigns runnable app work:
 - Do not change design-only files unless explicitly assigned.
 - Do not create launch or tooling files unless they are assigned or clearly required by the runnable app task.
 - Report what changed, what was validated, and any remaining risk.
+
+## Git control
+
+- Do not stage, commit, or push changes. The learner controls all git operations through Copilot CLI prompts.

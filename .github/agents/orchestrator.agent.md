@@ -32,3 +32,7 @@ These are the specialist agents you can call:
 - Keep overlapping file scopes in separate phases.
 - Summarize progress after each phase.
 - Surface blockers instead of hiding them.
+
+## Git control
+
+- Do not stage, commit, or push changes. The learner controls all git operations through Copilot CLI prompts.

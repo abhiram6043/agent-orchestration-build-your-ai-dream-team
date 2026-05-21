@@ -34,3 +34,7 @@ Return:
 - Do not hide uncertainty.
 - Match existing repository patterns.
 - Give the Orchestrator enough file ownership detail to prevent conflicts.
+
+## Git control
+
+- Do not stage, commit, or push changes. The learner controls all git operations through Copilot CLI prompts.
