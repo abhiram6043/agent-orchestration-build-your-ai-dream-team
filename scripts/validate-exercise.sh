@@ -95,7 +95,7 @@ require_grep 'project-card' .github/steps/3-step.md "Step 3 prompts for visible 
 require_grep 'border-radius, box-shadow' .github/steps/3-step.md "Step 3 prompts for polished UI styling"
 require_grep 'polished frontend dashboard' .github/steps/3-step.md "Step 3 has Designer create a polished frontend"
 require_grep 'Create \.vscode/launch\.json as strict JSON with no comments\.' .github/steps/3-step.md "Step 3 has the implementation agent create launch.json"
-require_grep '\$\{workspaceFolder\}/app' .github/steps/3-step.md "Step 3 serves the app directory"
+require_grep 'serve from the app directory' .github/steps/3-step.md "Step 3 serves the app directory"
 require_grep 'http://localhost:%s/index\.html' .github/steps/3-step.md "Step 3 opens the dashboard index"
 require_grep 'lowercase word "validation"' .github/steps/4-step.md "Step 4 prompt makes validation wording deterministic"
 require_grep 'lowercase word "handoff"' .github/steps/4-step.md "Step 4 prompt makes handoff wording deterministic"
