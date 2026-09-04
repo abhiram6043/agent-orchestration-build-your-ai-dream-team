@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "name": "Contributor Portal",
+      "owner": "Mona",
+      "status": "Active",
+      "recentActivity": "Updated onboarding issue triage",
+      "priority": "High"
+    },
+    {
+      "name": "Mobile Release",
+      "owner": "Priya",
+      "status": "On track",
+      "recentActivity": "Completed the release candidate review",
+      "priority": "Medium"
+    },
+    {
+      "name": "Design System",
+      "owner": "Jordan",
+      "status": "Needs attention",
+      "recentActivity": "Waiting for accessibility audit results",
+      "priority": "High"
+    }
+  ]
+}
